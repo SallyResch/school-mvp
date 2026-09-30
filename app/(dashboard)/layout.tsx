@@ -1,11 +1,12 @@
-import AuthHeader from "@/components/Headers/AuthHeader"
+
+import HomeHeader from "@/components/Headers/HomeHeader"
 import Sidebar from "@/components/Sidebar"
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div>
-            <AuthHeader />
-            <div>
+        <div className="min-h-full">
+            <HomeHeader />
+            <div className="flex flex-row">
                 <Sidebar />
                 {children}
             </div>
