@@ -1,8 +1,9 @@
+import { createClient } from "@/lib/supabase/browser-client";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
-      Start Page
+      Homepage
     </div>
   );
 }
