@@ -6,10 +6,11 @@ const teacherPage = async () => {
     const { data, error } = await supabase.from('courses').select('*');
     console.log(data)
     return (
-        <div>
+        <div className="grid grid-cols-2 m-auto">
             {data && data.map((course) => (
-                <div key={course.id}>
+                <div className="border" key={course.id}>
                     <p>{course.name}</p>
+                    <p>{course.description}</p>
                 </div>
             ))}
         </div>)
