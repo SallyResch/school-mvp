@@ -8,7 +8,7 @@ const page = async () => {
     return (
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((course) => (
-                <Link href={`/teacher/courses/${course.id}`} className="border" key={course.id}>
+                <Link href={`/teacher/courses/${course.slug}`} className="border" key={course.slug}>
                     <p>{course.name}</p>
                     <p>{course.description}</p>
                 </Link>
