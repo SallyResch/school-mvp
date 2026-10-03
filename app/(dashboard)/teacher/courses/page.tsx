@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
 
-const page = async () => {
+const CoursesPage = async () => {
     const supabase = await createClient()
     const { data, error } = await supabase.from('courses').select('*');
     console.log(data)
@@ -16,4 +16,4 @@ const page = async () => {
         </div>)
 }
 
-export default page
+export default CoursesPage
