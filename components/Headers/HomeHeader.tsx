@@ -3,7 +3,7 @@ import GeneralNav from "../Navigations/GeneralNav"
 
 const HomeHeader = () => {
     return (
-        <div className="flex flex-row justify-evenly">
+        <div className="flex flex-row justify-evenly bg-green p-4">
             <h2>HomeHeader</h2>
             <GeneralNav />
         </div>

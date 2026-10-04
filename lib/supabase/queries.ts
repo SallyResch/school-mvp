@@ -8,3 +8,11 @@ export const getSinglePost = async (slug:string)=>{
     .eq('slug', slug)
     .single()
 }
+
+export const searchCourses = async (searchTerm:string)=>{
+    const supabase = createClient()
+    return await supabase
+    .from("courses")
+    .select('name, description, slug, created_at')
+    .textSearch('name', searchTerm)
+}
