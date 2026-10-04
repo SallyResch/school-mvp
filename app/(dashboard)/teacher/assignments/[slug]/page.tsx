@@ -1,11 +1,12 @@
-import React from 'react'
 
 type Props = {}
 
-const page = (props: Props) => {
+const AssignmentPage = (props: Props) => {
   return (
-    <div>Slugpage assignment</div>
+    <div>
+      <h1>Slugpage assignment</h1>
+    </div>
   )
 }
 
-export default page
+export default AssignmentPage

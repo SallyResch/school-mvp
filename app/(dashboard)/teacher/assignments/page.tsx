@@ -8,12 +8,12 @@ const AssignmentsPage = async () => {
     return (
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((assignment) => (
-                <Link href={`/teacher/courses/${assignment.slug}`} className="border" key={course.slug}>
-                    <p>{course.name}</p>
-                    <p>{course.description}</p>
+                <Link href={`/teacher/courses/${assignment.slug}`} className="border" key={assignment.slug}>
+                    <p>Assignment name: {assignment.name}</p>
+                    <p>Description: {assignment.description}</p>
+                    <p>Teacher ID: {assignment.teacher_id}</p>
                 </Link>
             ))}
         </div>)
 }
-
 export default AssignmentsPage
