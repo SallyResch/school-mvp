@@ -1,8 +1,8 @@
-import { getSinglePost } from "@/lib/supabase/queries"
+import { getSingleCourse } from "@/lib/supabase/queries"
 
 const CoursePage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params
-  const { data, error } = await getSinglePost(slug)
+  const { data, error } = await getSingleCourse(slug)
   return (
     <div>
       {data && <h1>Course: {data.name}</h1>}

@@ -1,7 +1,13 @@
 
 import { createClient } from "./browser-client";
 
-export const getSinglePost = async (slug:string)=>{
+export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
+    return await supabase.from("courses")
+    .select('name, description, created_at, slug')
+    .order('created_at', { ascending: true })
+}
+
+export const getSingleCourse = async (slug:string)=>{
     const supabase = createClient()
     return await supabase.from("courses")
     .select('*')

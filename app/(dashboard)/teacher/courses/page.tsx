@@ -1,18 +1,15 @@
-import { createClient } from '@/lib/supabase/browser-client';
-import Link from 'next/link';
+import AllCourses from "@/components/AllCourses"
+import { getAllCourses } from "@/lib/supabase/queries"
+import { createClient } from "@/lib/supabase/server-client"
+
+export const revalidate = 600
 
 const CoursesPage = async () => {
     const supabase = await createClient()
-    const { data, error } = await supabase.from('courses').select('*');
-    console.log(data)
+    const { data, error } = await getAllCourses(supabase)
     return (
-        <div className="grid grid-cols-2 m-auto">
-            {data && data.map((course) => (
-                <Link href={`/teacher/courses/${course.slug}`} className="border" key={course.slug}>
-                    <p>{course.name}</p>
-                    <p>{course.description}</p>
-                </Link>
-            ))}
+        <div>
+            {data && <AllCourses courses={data} />}
         </div>)
 }
 
