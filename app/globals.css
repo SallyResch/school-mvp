@@ -3,6 +3,7 @@
 :root {
   --lightGreen: #cbf3f0;
   --green: #2ec4b6;
+  --blue: #02014d;
   --orange: #ff9f1c;
   --lightOrange: #ffbf69;
   --white: #ffffff;
@@ -11,6 +12,7 @@
 @theme {
   --color-lightGreen: #cbf3f0;
   --color-green: #2ec4b6;
+  --color-blue: #02014d;
   --color-orange: #ff9f1c;
   --color-lightOrange: #ffbf69;
   --color-white: #ffffff;

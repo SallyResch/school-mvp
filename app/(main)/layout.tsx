@@ -4,7 +4,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div>
             <HomeHeader />
-            <div className="max-w-md m-auto text-center">
+            <div className="">
                 {children}
             </div>
         </div>
