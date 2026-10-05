@@ -11,7 +11,7 @@ export const SignUp = async (
      const {data: role, error: roleError} = await supabase
     .from("roles")
     .select("id")
-    .eq("name", "Teacher")
+    .eq("name", "Student")
     .single()
 
     if(roleError){
@@ -34,5 +34,5 @@ export const SignUp = async (
         if(userError) throw userError
     }
     console.log(user)
-    redirect("/")
+    redirect("/student")
 }

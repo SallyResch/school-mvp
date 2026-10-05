@@ -20,18 +20,49 @@ export const updateSession = async (request:NextRequest)=>{
           }
         }
     )
-
     const {data:{user}, error} = await supabase.auth.getUser()
-    //is protected route
-    const protectedRoutes: string[]=[
-        "/teacher","/student"
-    ]
 
-    //if acceccing protected route you get redirected to login bc you cant access protected routes unless u are logged in
-    if(!user && protectedRoutes.includes(request.nextUrl.pathname))
+    //is protected route
+    const protectedRoutes ={
+        "/teacher":"Teacher",
+        "/student":"Student"
+    }
+
+    const pathname = request.nextUrl.pathname
+
+    const requiredRole = protectedRoutes[pathname as keyof typeof protectedRoutes]
+
+    //User not logged in
+    if(!user && requiredRole)
     {
         return NextResponse.redirect(new URL('/login', request.url))
     }
+
+    if(user && requiredRole){
+        const {data: profile, error:profileError} = await supabase
+        .from("users")
+        .select("role_id")
+        .eq("id", user.id)
+        .single()
+
+        if(profileError){
+            console.error("Could not fetch user profile:", profileError)
+            return NextResponse.redirect(new URL("/login", request.url))
+        }
+
+        const {data: role, error: roleError} = await supabase
+        .from("roles")
+        .select("name")
+        .eq("id", profile.role_id)
+
+        if(roleError){
+            console.error("Could not fetch user role: ", roleError)
+            return NextResponse.redirect(
+                new URL("/",request.url)
+            )
+        }
+    }
+   
   console.log("proxy update session")
   return supabaseResponse
 }
