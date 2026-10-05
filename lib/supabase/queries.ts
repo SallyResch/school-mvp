@@ -1,7 +1,13 @@
 
 import { createClient } from "./browser-client";
 
-export const getSinglePost = async (slug:string)=>{
+export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
+    return await supabase.from("courses")
+    .select('name, description, created_at, slug')
+    .order('created_at', { ascending: true })
+}
+
+export const getSingleCourse = async (slug:string)=>{
     const supabase = createClient()
     return await supabase.from("courses")
     .select('*')
@@ -15,4 +21,19 @@ export const searchCourses = async (searchTerm:string)=>{
     .from("courses")
     .select('name, description, slug, created_at')
     .textSearch('name', searchTerm)
+}
+
+export const getLoggedInUser = async(supabase:ReturnType<typeof createClient>)=>{
+    const {data:{user}, error: authError} = await supabase.auth.getUser()
+    if(authError || !user){
+        return null
+    }
+    const {data, error} = await supabase.from("users").select("name").eq("id", user.id).single()
+
+    if(error){
+        console.error("could not fetch userprofile: ", error.message)
+        return null
+    }
+    console.log(data)
+    return data
 }

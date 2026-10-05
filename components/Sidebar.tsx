@@ -1,7 +1,7 @@
 
 const Sidebar = () => {
     return (
-        <div className="bg-lightGreen">Sidebar</div>
+        <div className="bg-lightOrange">Sidebar</div>
     )
 }
 
