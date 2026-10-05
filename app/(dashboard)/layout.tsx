@@ -1,6 +1,19 @@
 
 import HomeHeader from "@/components/Headers/HomeHeader"
 import Sidebar from "@/components/Sidebar"
+import { Cinzel_Decorative, Playfair_Display_SC } from "next/font/google";
+
+const geistSans = Playfair_Display_SC({
+    variable: "--font-playfair-mono",
+    weight: "400",
+    subsets: ["latin"],
+});
+
+const geistMono = Cinzel_Decorative({
+    variable: "--font-geist-mono",
+    weight: "400",
+    subsets: ["latin"],
+});
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
