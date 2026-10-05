@@ -19,9 +19,11 @@ const Search = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center">
-            <input className="border py-1 px-2" onChange={handleChange} type="text" placeholder="Search for posts" value={input} />
-            <button className="border rounded m-2 px-2" onClick={handleClick}>Search</button>
+        <div className="flex flex-col justify-center items-center mt-2">
+            <div className="flex flex-col items-center md:flex md:flex-row">
+                <input className="border py-1 px-2 bg-white border-lightGreen rounded" onChange={handleChange} type="text" placeholder="Search for course" value={input} />
+                <button className="border rounded m-2 px-2 bg-lightOrange font-semibold w-fit" onClick={handleClick}>Search</button>
+            </div>
             {searchResults &&
                 <div className="flex flex-col">
                     <h3>SearchResult:</h3>

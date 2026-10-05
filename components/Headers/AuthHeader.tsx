@@ -1,7 +1,7 @@
 
 const AuthHeader = () => {
     return (
-        <div>AuthHeader</div>
+        <div className="bg-blue text-lightOrange">AuthHeader</div>
     )
 }
 
