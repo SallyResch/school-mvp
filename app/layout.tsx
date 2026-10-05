@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display_SC, Cinzel_Decorative } from "next/font/google";
 import "./globals.css";
 import { QueryClientProvider } from "@/providers/queryProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geistSans = Playfair_Display_SC({
+  variable: "--font-playfair-mono",
+  weight: "400",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Cinzel_Decorative({
   variable: "--font-geist-mono",
+  weight: "400",
   subsets: ["latin"],
 });
 

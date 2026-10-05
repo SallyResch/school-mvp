@@ -18,7 +18,7 @@ const LoginForm = () => {
 
     return (
         <div>
-            <form className="p-4 border rounded" onSubmit={handleSubmit((values) => mutate(values))}>
+            <form className="p-4 border rounded flex flex-col justify-center items-center" onSubmit={handleSubmit((values) => mutate(values))}>
                 <div className='flex flex-col m-2'>
                     <label className="font-semibold text-sm" htmlFor="email">Email</label>
                     <input className="border p-2" type="email" {...register("email")} placeholder='email@mail.com' />
@@ -29,7 +29,7 @@ const LoginForm = () => {
                     <input className="border p-2" type="password" {...register("password")} placeholder='enter password' />
                     {errors.password && <ErrorMessage error={errors.password.message!} />}
                 </div>
-                <button className="hover:cursor-pointer border rounded m-auto bg-amber-200 p-2">Login</button>
+                <button className="hover:cursor-pointer border rounded bg-amber-200 p-2">Login</button>
                 {error && <ErrorMessage error={error.message} />}
             </form>
         </div>

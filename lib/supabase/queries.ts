@@ -22,3 +22,18 @@ export const searchCourses = async (searchTerm:string)=>{
     .select('name, description, slug, created_at')
     .textSearch('name', searchTerm)
 }
+
+export const getLoggedInUser = async(supabase:ReturnType<typeof createClient>)=>{
+    const {data:{user}, error: authError} = await supabase.auth.getUser()
+    if(authError || !user){
+        return null
+    }
+    const {data, error} = await supabase.from("users").select("name").eq("id", user.id).single()
+
+    if(error){
+        console.error("could not fetch userprofile: ", error.message)
+        return null
+    }
+    console.log(data)
+    return data
+}

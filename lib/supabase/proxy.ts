@@ -24,13 +24,13 @@ export const updateSession = async (request:NextRequest)=>{
     const {data:{user}, error} = await supabase.auth.getUser()
     //is protected route
     const protectedRoutes: string[]=[
-        "/createPost"
+        "/teacher","/student"
     ]
 
     //if acceccing protected route you get redirected to login bc you cant access protected routes unless u are logged in
     if(!user && protectedRoutes.includes(request.nextUrl.pathname))
     {
-        return NextResponse.redirect(new URL('/auth/login', request.url))
+        return NextResponse.redirect(new URL('/login', request.url))
     }
   console.log("proxy update session")
   return supabaseResponse
