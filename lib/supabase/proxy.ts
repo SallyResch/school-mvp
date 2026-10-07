@@ -21,16 +21,23 @@ export const updateSession = async (request:NextRequest)=>{
         }
     )
     const {data:{user}, error} = await supabase.auth.getUser()
-
-    //is protected route
-    const protectedRoutes ={
-        "/teacher":"Teacher",
-        "/student":"Student"
-    }
-
     const pathname = request.nextUrl.pathname
 
-    const requiredRole = protectedRoutes[pathname as keyof typeof protectedRoutes]
+    const protectedRoutes ={
+        teacher:"Teacher",
+        student:"Student"
+    }
+
+    const isTeacherRoute= pathname.startsWith("/teacher")
+    const isStudentRoute = pathname.startsWith("/student")
+    let requiredRole:string = protectedRoutes[pathname as keyof typeof protectedRoutes]
+
+    if(isTeacherRoute){
+        requiredRole ="Teacher"
+    }
+    if(isStudentRoute){
+        requiredRole="Student"
+    }
 
     //User not logged in
     if(!user && requiredRole)
@@ -39,29 +46,32 @@ export const updateSession = async (request:NextRequest)=>{
     }
 
     if(user && requiredRole){
-        const {data: profile, error:profileError} = await supabase
-        .from("users")
+        const{ data:profile, error:profileError } = await supabase.from("users")
         .select("role_id")
         .eq("id", user.id)
         .single()
 
         if(profileError){
-            console.error("Could not fetch user profile:", profileError)
-            return NextResponse.redirect(new URL("/login", request.url))
-        }
-
-        const {data: role, error: roleError} = await supabase
-        .from("roles")
-        .select("name")
-        .eq("id", profile.role_id)
-
-        if(roleError){
-            console.error("Could not fetch user role: ", roleError)
-            return NextResponse.redirect(
-                new URL("/",request.url)
-            )
-        }
+            console.error("Could not fetch user profile", profileError)
+        return NextResponse.redirect(
+            new URL("/login", request.url)
+        )
     }
+    
+    const {data:role, error: roleError} = await supabase.from("roles")
+    .select("name")
+    .eq("id",profile.role_id)
+    .single()
+
+    if(roleError){
+        console.error("Could not fetch user role:", roleError)
+        return NextResponse.redirect(new URL("/", request.url))
+    }
+    
+    if(role.name !== requiredRole){
+        return NextResponse.redirect(new URL("/", request.url))
+    }
+}
    
   console.log("proxy update session")
   return supabaseResponse
