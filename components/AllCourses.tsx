@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 
+//export const revalidate = 600;
 const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
     const supabase = createClient()
     const { data } = useQuery({

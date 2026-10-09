@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
-
+export const revalidate = 600;
 const AssignmentsPage = async () => {
     const supabase = await createClient()
     const { data, error } = await supabase.from('assignments').select('*');
