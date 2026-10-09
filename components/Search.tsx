@@ -25,8 +25,8 @@ const Search = () => {
                 <button className="border rounded m-2 px-2 bg-lightOrange font-semibold w-fit" onClick={handleClick}>Search</button>
             </div>
             {searchResults &&
-                <div className="flex flex-col">
-                    <h3>SearchResult:</h3>
+                <div className="flex flex-col  text-lightOrange">
+                    <h3 className="font-semibold">SearchResult:</h3>
                     {searchResults.map((result, index) => <Link className="underline" key={index} href={`/teacher/courses/${result.slug}`}>{result.name}</Link>)}
                 </div>}
         </div>
