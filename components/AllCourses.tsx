@@ -17,7 +17,7 @@ const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
         initialData: courses,
         staleTime: 1000
     })
-    console.log(data)
+
     return (
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((course) => (

@@ -10,7 +10,7 @@ export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
 export const getSingleCourse = async (slug:string)=>{
     const supabase = createClient()
     return await supabase.from("courses")
-    .select('*')
+    .select('id, name, description,teacher("id", "name", "last_name")')
     .eq('slug', slug)
     .single()
 }
@@ -34,6 +34,6 @@ export const getLoggedInUser = async(supabase:ReturnType<typeof createClient>)=>
         console.error("could not fetch userprofile: ", error.message)
         return null
     }
-    console.log(data)
+   
     return data
 }
