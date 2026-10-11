@@ -2,20 +2,21 @@
 import { createClient } from "@/lib/supabase/server-client"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
-import z, { slugify } from "zod"
+import z from "zod"
 import { courseSchema } from "./schemas"
+import { slugify } from "@/lib/supabase/slugify"
 
-export const CreateCourse = async (coursedata: z.infer <typeof courseSchema>)=>{
-    const supabase = await createClient()
+export const CreateCourseAction = async (coursedata: z.infer <typeof courseSchema>)=>{
     const parsedData = courseSchema.parse(coursedata)
+    const supabase = await createClient()
+    const {data: {user}} = await supabase.auth.getUser()
 
-    const{data:{user}}= await supabase.auth.getUser()
-    if(!user) throw new Error("unauthorized, log in first")
+    if(!user) throw new Error("Unauthorized access!!")
+        
+     const slug = slugify(parsedData.name)
 
-    const slug = slugify(parsedData.name)
-
-    const {data, error} = await supabase.from("courses").insert([{...parsedData, slug: slug}])
+     const {data,error} = await supabase.from("courses").insert([{name: parsedData.name,description: parsedData.description, slug: slug, teacher: user.id}])
     if(error) console.log(error)
-        revalidatePath("/")
-        redirect(`/${slug}`)
+    revalidatePath(`/`)
+    redirect(`/${slug}`)
 }

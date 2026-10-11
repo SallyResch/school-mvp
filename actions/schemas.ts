@@ -15,5 +15,5 @@ export const signupSchema = z.object({
 export const courseSchema = z.object({
     name: z.string().min(3, "Must be atleast 3 characters long"),
     description: z.string().min(15, "Must be atleast 15 characters long"),
-    image:z.instanceof(FormData).optional()
+    //image:z.instanceof(FormData).optional()
 })
