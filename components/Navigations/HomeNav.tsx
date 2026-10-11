@@ -6,9 +6,9 @@ type Props = {}
 const HomeNav = (props: Props) => {
     return (
         <div>
-            <Link href={"#home"}>Home</Link>
-            <Link href={"#our-school"}>Our School</Link>
-            <Link href={"#student-life"}>Student life</Link>
+            <Link className='m-4' href={"#home"}>Home</Link>
+            <Link className='m-4' href={"#our-school"}>Our School</Link>
+            <Link className='m-4' href={"#student-life"}>Student life</Link>
         </div>
     )
 }
