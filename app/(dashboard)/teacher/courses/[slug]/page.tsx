@@ -6,7 +6,7 @@ const CoursePage = async ({ params }: { params: { slug: string } }) => {
   const supabase = await createClient()
   const { slug } = await params
   const { data, error } = await getSingleCourse(slug)
-  const { data: { user }, userError } = await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
   const isAuthor = user && data && user.id === data!.teacher!.id ? true : false
 
   return (

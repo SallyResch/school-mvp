@@ -5,8 +5,8 @@ export default async function Home() {
   return (
     <main>
       <section className="h-dvh m-auto" id="home">
-        <div className="flex flex-col md:flex-row justify-evenly">
-          <div className="flex flex-col">
+        <div className="flex flex-col md:flex-row justify-evenly mb-12">
+          <div className="flex flex-col max-w-">
             <div className="flex flex-row items-center">
               <div className="bg-orange rounded-full w-8 h-8"></div>
               <p className="text-wine font-semibold tracking-widest uppercase text-sm">Learn boldly. Grow together.</p>
@@ -38,6 +38,24 @@ export default async function Home() {
               <p className="text-wine font-bold ">24+</p>
               <p>clubs, teams & creative studios</p>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center bg-navy md:flex-row md:justify-evenly text-paper">
+          <div className="flex flex-row">
+            <p className="text-gold text-3xl">680</p>
+            <p>happy students</p>
+          </div>
+          <div className="flex flex-row">
+            <p className="text-gold text-3xl">14:1</p>
+            <p>Student-teacher Ratio</p>
+          </div>
+          <div className="flex flex-row">
+            <p className="text-gold text-3xl">32</p>
+            <p>years of excellence</p>
+          </div>
+          <div className="flex flex-row">
+            <p className="text-gold text-3xl">96%</p>
+            <p>collage acceptance</p>
           </div>
         </div>
       </section>

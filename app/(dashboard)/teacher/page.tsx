@@ -7,7 +7,7 @@ const teacherPage = async () => {
     const supabase = await createClient()
     const userProfile = await getLoggedInUser(supabase)
     return (
-        <div className="w-screen bg-[url('/teacherclass.png')] bg-cover bg-no-repeat bg-top">
+        <div className="w-screen bg-cover bg-no-repeat bg-top">
             <div className="flex flex-col justify-center items-center bg-blue/60">
                 <h1 className="text-3xl mt-5 font-bold text-lightOrange">Welcome {userProfile!.name}</h1>
                 <Search />

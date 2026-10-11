@@ -8,3 +8,8 @@ export const DeleteCourseAction = async(courseId:string)=>{
     await supabase.from("courses").delete().eq("id", courseId).throwOnError()
     redirect("/teacher/courses")
 }
+export const DeleteAssignmentAction = async(assignmentId:string)=>{
+    const supabase = await createClient()
+    await supabase.from("assignments").delete().eq("id", assignmentId).throwOnError()
+    redirect("/teacher/assignments")
+}

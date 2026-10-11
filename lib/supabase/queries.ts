@@ -7,10 +7,24 @@ export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
     .order('created_at', { ascending: true })
 }
 
+export const getAllAssignments = async (supabase:ReturnType<typeof createClient>)=>{
+    return await supabase.from("assignments")
+    .select('name, description, created_at, slug, course_id, teacher_id')
+    .order('created_at', { ascending: true })
+}
+
 export const getSingleCourse = async (slug:string)=>{
     const supabase = createClient()
     return await supabase.from("courses")
     .select('id, name, description,teacher("id", "name", "last_name")')
+    .eq('slug', slug)
+    .single()
+}
+
+export const getSingleAssignment = async (slug:string)=>{
+    const supabase = createClient()
+    return await supabase.from("assignments")
+   .select('id, name, description, created_at, slug, course_id, teacher_id("id","name","last_name")')
     .eq('slug', slug)
     .single()
 }

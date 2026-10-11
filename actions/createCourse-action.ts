@@ -18,5 +18,5 @@ export const CreateCourseAction = async (coursedata: z.infer <typeof courseSchem
      const {data,error} = await supabase.from("courses").insert([{name: parsedData.name,description: parsedData.description, slug: slug, teacher: user.id}])
     if(error) console.log(error)
     revalidatePath(`/`)
-    redirect(`/${slug}`)
+    redirect(`/teacher/courses`)
 }

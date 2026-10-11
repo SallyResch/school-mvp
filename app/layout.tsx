@@ -3,6 +3,7 @@ import { Playfair_Display_SC, Cinzel_Decorative } from "next/font/google";
 import "./globals.css";
 import { QueryClientProvider } from "@/providers/queryProvider";
 import { Toaster } from "sonner";
+import Footer from "@/components/Footer";
 
 const geistSans = Playfair_Display_SC({
   variable: "--font-playfair-mono",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <QueryClientProvider>
           {children}
         </QueryClientProvider>
+        <Footer />
       </body>
     </html>
   );
