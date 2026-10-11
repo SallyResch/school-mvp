@@ -2,7 +2,7 @@ import HomeHeader from "@/components/Headers/HomeHeader"
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div>
+        <div className="bg-cream">
             <HomeHeader />
             <div className="">
                 {children}

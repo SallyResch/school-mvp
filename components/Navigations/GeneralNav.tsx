@@ -16,7 +16,7 @@ const GeneralNav = async () => {
                 </div>
                 :
                 <div>
-                    <Link className="border rounded p-2 hover:shadow-2xl font-semibold" href={"/login"}>Log in</Link>
+                    <Link className="border rounded p-2 hover:shadow-2xl font-semibold" href={"/login"}>Portal</Link>
                     <Link className="border rounded p-2 hover:shadow-2xl font-semibold" href={"/signup"}>Sign up</Link>
                 </div>}
 
