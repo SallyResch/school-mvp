@@ -4,7 +4,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="bg-cream">
             <HomeHeader />
-            <div className="">
+            <div className="bg-cream">
                 {children}
             </div>
         </div>

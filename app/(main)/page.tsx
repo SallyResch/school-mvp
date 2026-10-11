@@ -2,8 +2,16 @@
 
 export default async function Home() {
   return (
-    <div className="bg-[url('/schoolpicture.png')] bg-cover bg-no-repeat bg-top h-[950px]">
-      <h1>School name</h1>
-    </div>
+    <main className="h-[950px]">
+      <section id="home">
+        home section
+      </section>
+      <section id="our-school">
+        Our school
+      </section>
+      <section id="student-life">
+        Student Life
+      </section>
+    </main>
   );
 }
