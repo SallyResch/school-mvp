@@ -4,66 +4,144 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <main>
-      <section className="h-dvh m-auto" id="home">
-        <div className="flex flex-col md:flex-row justify-evenly mb-12">
-          <div className="flex flex-col">
+      <section id="home" className="max-w-full">
+        <div className="flex flex-col md:flex-row justify-center">
+          <div className="sm:max-w-90 md:w-112.5">
             <div className="flex flex-row items-center">
               <div className="bg-orange rounded-full w-8 h-8"></div>
-              <p className="text-wine font-semibold tracking-widest uppercase text-sm">Learn boldly. Grow together.</p>
+              <p className="text-wine font-semibold tracking-widest uppercase text-sm ml-2">Learn boldly. Grow together.</p>
             </div>
-            <div>
-              <h2 className="text-ink text-5xl">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
+            <div className="my-6">
+              <h2 className="text-ink text-5xl mb-6">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
               <p className="text-muted text-lg">Northstar Academy is a vibrant learning community where curiosity is celebrated, confidence grows, and every student is known by name.</p>
             </div>
-            <div className="mt-4">
-              <Link className="bg-navy text-paper p-4 rounded-xl font-semibold" href={"#our-school"}>Discover Northstar</Link>
-              <Link className="font font-semibold text-navy" href={"#student-life"}>Explore student life</Link>
+            <div className="my-4">
+              <Link className="bg-navy text-paper font-semibold rounded-2xl p-3" href={"#our-school"}>Discover Northstar</Link>
+              <Link className="text-navy font-semibold bg-cream rounded-2xl p-3" href={"#student-life"}>Explore student life</Link>
             </div>
-            <div>
-              <p>98% of families</p>
-              <p>would recomment Northstar</p>
-            </div>
+            <p>98% of families</p>
+            <p>would recommend Northstar</p>
           </div>
-          <div className="relative ">
-            <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md">
+          <div className="relative w-[360px] h-[400px]">
+            <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md w-50 text-sm">
               <p>Curiosity first</p>
               <p>Learning that sparks joy</p>
             </div>
             <div className="absolute right-4 top-4 z-10 text-2xl">star</div>
-            <div className="absolue inset-[12/]">
-              <img className="h-2/4 w-2/4 object-cover rounded-[43%_57%_61%_39%/42%_38%_62%_58%]" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=85" alt="" />
-            </div>
-            <div className="absolute bottom-4 left-4 z-10 text-xl">lightning</div>
-            <div className="absolute bottom-0 right-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md border-l-wine border-l-6">
-              <p className="text-wine font-bold ">24+</p>
-              <p>clubs, teams & creative studios</p>
+            <img className="absolute right-0 top-[13px] h-[92%] w-[90%] rounded-[44%_56%_42%_58%/56%_37%_63%_44%] object-cover object-[48%_center]" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=85" alt="" />
+            <div className="absolute bottom-5 left-0 z-10 text-xl">lightning</div>
+            <div className="absolute bottom-0 right-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md border-l-wine border-l-6 w-50">
+              <p className="text-wine font-bold text-xl">24+</p>
+              <p className="text-sm">clubs, teams & creative studios</p>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center bg-navy md:flex-row md:justify-evenly text-paper">
-          <div className="flex flex-row">
+        <div className="flex flex-col items-center bg-navy md:flex-row md:justify-evenly text-paper p-4">
+          <div className="flex flex-row items-center">
             <p className="text-gold text-3xl">680</p>
-            <p>happy students</p>
+            <p className="ml-2">happy students</p>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center">
             <p className="text-gold text-3xl">14:1</p>
-            <p>Student-teacher Ratio</p>
+            <p className="ml-2">Student-teacher Ratio</p>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center">
             <p className="text-gold text-3xl">32</p>
-            <p>years of excellence</p>
+            <p className="ml-2">years of excellence</p>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center">
             <p className="text-gold text-3xl">96%</p>
-            <p>collage acceptance</p>
+            <p className="ml-2">collage acceptance</p>
           </div>
         </div>
       </section>
-      <section className="h-dvh" id="our-school">
-        Our school
+      <section className="max-w-4xl m-auto pb-30 pt-30" id="our-school">
+        <p className="text-wine font-semibold tracking-widest uppercase text-sm ">Why northstar?</p>
+        <div className="flex flex-col md:flex-row md:justify-between mb-10">
+          <h2 className="text-ink text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
+          <p className="text-muted w-[300px]">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center">
+          <div className="bg-navy text-paper flex flex-col p-4 w-[300px] rounded-2xl mr-5">
+            <div className="flex flex-row justify-between mb-10">
+              <div>
+                icon
+              </div>
+              <div>
+                01
+              </div>
+            </div>
+            <div className="mb-10">
+              <h3 className="text-2xl mb-4">Learning with purpose</h3>
+              <p className="text-muted font-semibold">Real projects, thoughtful questions, and lessons that connect beyond the classroom.</p>
+            </div>
+            <Link href={"/teacher/courses"}>Explore academics</Link>
+          </div>
+          <div className="bg-orange text-ink flex flex-col p-4 w-[300px] rounded-2xl">
+            <div className="flex flex-row justify-between mb-10">
+              <div>
+                icon
+              </div>
+              <div>
+                01
+              </div>
+            </div>
+            <div className="mb-10">
+              <h3 className="text-2xl mb-4">Learning with purpose</h3>
+              <p className="text-muted font-semibold">Real projects, thoughtful questions, and lessons that connect beyond the classroom.</p>
+            </div>
+            <Link href={"/teacher/courses"}>Explore academics</Link>
+          </div>
+          <div className="bg-wine text-paper flex flex-col p-4 w-[300px] rounded-2xl ml-5">
+            <div className="flex flex-row justify-between mb-10">
+              <div>
+                icon
+              </div>
+              <div>
+                01
+              </div>
+            </div>
+            <div className="mb-10">
+              <h3 className="text-2xl mb-4">Learning with purpose</h3>
+              <p className="text-muted font-semibold">Real projects, thoughtful questions, and lessons that connect beyond the classroom.</p>
+            </div>
+            <Link href={"/teacher/courses"}>Explore academics</Link>
+          </div>
+        </div>
       </section>
-      <section className="h-dvh" id="student-life">
-        Student Life
+      <section className="h-vh bg-paper flex flex-col md:flex-row justify-evenly items-center pt-30" id="student-life">
+        <div>
+          <img src="https://images.unsplash.com/photo-1758270704226-db897b180243?auto=format&fit=crop&w=900&q=85" alt="Students in classroom" />
+          <img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?auto=format&fit=crop&w=900&q=85" alt="Students laughing together" />
+        </div>
+        <div>
+          <p className="text-wine font-semibold tracking-widest uppercase text-sm ">The northstar experience</p>
+          <h3 className="text-5xl">Big ideas. Real <br /> friendships. <span className="text-orange">Every day.</span></h3>
+          <p className="text-muted">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
+          <div className="">
+            <div className="flex flex-row">
+              <p>icon</p>
+              <div>
+                <p>bold text</p>
+                <p>small text</p>
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <p>icon</p>
+              <div>
+                <p>bold text</p>
+                <p>small text</p>
+              </div>
+            </div>
+            <div className="flex flex-row ">
+              <p>icon</p>
+              <div>
+                <p>bold text</p>
+                <p>small text</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
