@@ -1,19 +1,17 @@
-import { createClient } from '@/lib/supabase/browser-client';
-import Link from 'next/link';
+import AllAssignments from '@/components/AllAssignments';
+import { createClient } from '@/lib/supabase/server-client';
+import { getAllAssignments } from '@/lib/supabase/queries';
 
+export const revalidate = 600
 const AssignmentsPage = async () => {
     const supabase = await createClient()
-    const { data, error } = await supabase.from('assignments').select('*');
-    console.log(data)
+    const { data, error } = await getAllAssignments(supabase)
+    if (error) {
+        console.log("error: ", error)
+    }
     return (
-        <div className="grid grid-cols-2 m-auto">
-            {data && data.map((assignment) => (
-                <Link href={`/teacher/courses/${assignment.slug}`} className="border" key={assignment.slug}>
-                    <p>Assignment name: {assignment.name}</p>
-                    <p>Description: {assignment.description}</p>
-                    <p>Teacher ID: {assignment.teacher_id}</p>
-                </Link>
-            ))}
+        <div>
+            <AllAssignments assignments={data} />
         </div>)
 }
 export default AssignmentsPage

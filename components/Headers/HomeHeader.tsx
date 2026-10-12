@@ -1,11 +1,12 @@
-import GeneralNav from "../Navigations/GeneralNav"
+import Logo from "../Logo"
+import AuthNav from "../Navigations/AuthNav"
 
 
 const HomeHeader = () => {
     return (
         <div className="flex flex-row justify-evenly bg-blue text-lightOrange font-semibold p-4">
-            <h2 className="text-2xl">S.A.D</h2>
-            <GeneralNav />
+            <Logo />
+            <AuthNav />
         </div>
     )
 }

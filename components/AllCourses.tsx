@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 
+//export const revalidate = 600;
 const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
     const supabase = createClient()
     const { data } = useQuery({
@@ -17,7 +18,7 @@ const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
         initialData: courses,
         staleTime: 1000
     })
-    console.log(data)
+
     return (
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((course) => (

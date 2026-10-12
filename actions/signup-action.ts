@@ -30,9 +30,9 @@ export const SignUp = async (
         const {error:userError}= await supabase
         .from('users')
         .insert({id: user.id, email: user.email, name: userdata.name, last_name: userdata.last_name, role_id:role.id})
-        console.log(user)
+       
         if(userError) throw userError
     }
-    console.log(user)
+  
     redirect("/student")
 }
