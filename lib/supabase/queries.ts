@@ -3,13 +3,15 @@ import { createClient } from "./browser-client";
 
 export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
     return await supabase.from("courses")
-    .select('name, description, created_at, slug')
+    .select('id, name, description, created_at, slug')
     .order('created_at', { ascending: true })
 }
 
 export const getAllAssignments = async (supabase:ReturnType<typeof createClient>)=>{
+    //console.log("Supabase: ", supabase)
+    //console.log("From: ", supabase?.from)
     return await supabase.from("assignments")
-    .select('name, description, created_at, slug, course_id, teacher_id')
+    .select('id, name, description, created_at, slug')
     .order('created_at', { ascending: true })
 }
 

@@ -1,9 +1,6 @@
 import CreateCourseForm from '@/components/Forms/CreateCourseForm'
-import React from 'react'
 
-type Props = {}
-
-const CreateCoursePage = (props: Props) => {
+const CreateCoursePage = () => {
     return (
         <div className='flex flex-col'>
             <h1 className='text-4xl'>Create Course</h1>

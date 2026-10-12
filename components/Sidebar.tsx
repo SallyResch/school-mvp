@@ -12,6 +12,7 @@ const Sidebar = async () => {
             <Link className="text-muted font-bold" href={"/teacher/courses"}>Courses</Link>
             <Link className="text-muted font-bold" href={"/teacher/courses/create"}>Create Course</Link>
             <Link className="text-muted font-bold" href={"/teacher/assignments"}>Assignments</Link>
+            <Link className="text-muted font-bold" href={"/teacher/assignments/create"}>Create Assignment</Link>
         </div>
     )
 }

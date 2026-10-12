@@ -13,9 +13,10 @@ const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
     <div className="max-w-md m-auto">
       {data! &&
         <div key={data.id}>
-          <h1>Course {data.name}</h1>
+          <h1>Assignment: {data.name}</h1>
           <p>Description: {data.description}</p>
           <p>Author: {data.teacher_id.name} {data.teacher_id.last_name}</p>
+
           {isAuthor &&
             <div className="flex flex-row">
               <button className="bg-red-600 text-white p-2 rounded m-1">Edit Course</button>

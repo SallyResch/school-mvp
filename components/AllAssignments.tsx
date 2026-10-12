@@ -4,7 +4,7 @@ import { getAllAssignments } from '@/lib/supabase/queries';
 import { AllAssignmentsType } from '@/lib/supabase/types';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
-export const revalidate = 600;
+//export const revalidate = 600;
 const AllAssignments = ({ assignments }: { assignments: AllAssignmentsType }) => {
     const supabase = createClient()
     const { data } = useQuery({
@@ -12,6 +12,7 @@ const AllAssignments = ({ assignments }: { assignments: AllAssignmentsType }) =>
         queryFn: async () => {
             const { data, error } = await getAllAssignments(supabase)
             if (error) throw new Error
+            console.log(data)
             return data
         },
         initialData: assignments,
@@ -24,6 +25,7 @@ const AllAssignments = ({ assignments }: { assignments: AllAssignmentsType }) =>
                 <Link href={`/teacher/assignments/${assignment.slug}`} className="border" key={assignment.slug}>
                     <p>Assignment name: {assignment.name}</p>
                     <p>Description: {assignment.description}</p>
+                    <p>{assignment.created_at}</p>
                 </Link>
             ))}
         </div>)
