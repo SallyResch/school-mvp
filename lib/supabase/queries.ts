@@ -44,7 +44,7 @@ export const getLoggedInUser = async(supabase:ReturnType<typeof createClient>)=>
     if(authError || !user){
         return null
     }
-    const {data, error} = await supabase.from("users").select('"name","role_id"').eq("id", user.id).single()
+    const {data, error} = await supabase.from("users").select('name, role_id, roles("id","name")').eq("id", user.id).single()
     if(error){
         console.error("could not fetch userprofile: ", error.message)
         return null

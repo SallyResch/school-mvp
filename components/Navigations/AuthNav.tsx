@@ -12,7 +12,7 @@ const GeneralNav = async () => {
         <div className="flex flex-row">
             {user ?
                 <div className="flex flex-row items-center">
-                    {userData!.role_id === "Teacher" ? <Link href={"/student"}>Workspace</Link> : <Link href={"/teacher"}>Workspace</Link>}
+                    {userData!.roles.name === "Student" ? <Link href={"/student"}>Workspace</Link> : <Link href={"/teacher"}>Workspace</Link>}
 
                     <div onClick={Logout} className="border rounded p-2 hover:shadow-2xl font-semibold hover:cursor-pointer">Logout</div>
                 </div>
