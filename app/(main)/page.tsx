@@ -59,10 +59,10 @@ export default async function Home() {
         <p className="text-wine font-semibold tracking-widest uppercase text-sm ">Why northstar?</p>
         <div className="flex flex-col md:flex-row md:justify-between mb-10">
           <h2 className="text-ink text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
-          <p className="text-muted w-[300px]">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
+          <p className="text-muted w-75">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
         </div>
-        <div className="flex flex-col md:flex-row justify-center">
-          <div className="bg-navy text-paper flex flex-col p-4 w-[300px] rounded-2xl mr-5">
+        <div className="flex flex-col md:flex-row items-stretch">
+          <div className="bg-navy text-paper flex flex-col p-4 w-75 rounded-2xl md:mr-5">
             <div className="flex flex-row justify-between mb-10">
               <div>
                 icon
@@ -77,7 +77,7 @@ export default async function Home() {
             </div>
             <Link href={"/teacher/courses"}>Explore academics</Link>
           </div>
-          <div className="bg-orange text-ink flex flex-col p-4 w-[300px] rounded-2xl">
+          <div className="bg-orange text-ink flex flex-col p-4 w-75 rounded-2xl">
             <div className="flex flex-row justify-between mb-10">
               <div>
                 icon
@@ -92,7 +92,7 @@ export default async function Home() {
             </div>
             <Link href={"/teacher/courses"}>Explore academics</Link>
           </div>
-          <div className="bg-wine text-paper flex flex-col p-4 w-[300px] rounded-2xl ml-5">
+          <div className="bg-wine text-paper flex flex-col p-4 w-75 rounded-2xl md:ml-5">
             <div className="flex flex-row justify-between mb-10">
               <div>
                 icon
@@ -110,15 +110,15 @@ export default async function Home() {
         </div>
       </section>
       <section className="h-vh bg-paper flex flex-col md:flex-row justify-evenly items-center pt-30" id="student-life">
-        <div>
-          <img src="https://images.unsplash.com/photo-1758270704226-db897b180243?auto=format&fit=crop&w=900&q=85" alt="Students in classroom" />
-          <img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?auto=format&fit=crop&w=900&q=85" alt="Students laughing together" />
+        <div className="flex flex-col justify-between w-1/2">
+          <img className="self-start" width={300} src="https://images.unsplash.com/photo-1758270704226-db897b180243?auto=format&fit=crop&w=900&q=85" alt="Students in classroom" />
+          <img className="self-end" width={300} src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?auto=format&fit=crop&w=900&q=85" alt="Students laughing together" />
         </div>
         <div>
           <p className="text-wine font-semibold tracking-widest uppercase text-sm ">The northstar experience</p>
           <h3 className="text-5xl">Big ideas. Real <br /> friendships. <span className="text-orange">Every day.</span></h3>
-          <p className="text-muted">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
-          <div className="">
+          <p className="text-muted min-w-75 max-w-125">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
+          <div>
             <div className="flex flex-row">
               <p>icon</p>
               <div>
