@@ -8,7 +8,7 @@ const Sidebar = async () => {
     console.log("Sidebar profile: ", userProfile)
     console.log("Role ID: ", userProfile?.role_id)
     return (
-        <div className="bg-navy p-6">
+        <div className="hidden md:block bg-navy p-6">
             {userProfile?.roles.name === "Student" ?
                 <div className="flex flex-col">
                     <Link className="text-gold text-xs font-bold uppercase hover:cursor-pointer text-center" href={"/student"}>{userProfile!.name} workspace</Link>
