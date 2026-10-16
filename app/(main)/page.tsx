@@ -4,9 +4,9 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <main>
-      <section id="home" className="max-w-full">
-        <div className="flex flex-col md:flex-row justify-center">
-          <div className="sm:max-w-90 md:w-112.5">
+      <section id="home" className="max-w-full md:pt-30 pb-10 pt-10">
+        <div className="flex flex-col md:flex-row justify-center md:pb-20">
+          <div className="sm:max-w-90">
             <div className="flex flex-row items-center">
               <div className="bg-orange rounded-full w-8 h-8"></div>
               <p className="text-wine font-semibold tracking-widest uppercase text-sm ml-2">Learn boldly. Grow together.</p>
@@ -22,13 +22,13 @@ export default async function Home() {
             <p>98% of families</p>
             <p>would recommend Northstar</p>
           </div>
-          <div className="relative w-[360px] h-[400px]">
+          <div className="relative w-90 h-100">
             <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md w-50 text-sm">
               <p>Curiosity first</p>
               <p>Learning that sparks joy</p>
             </div>
             <div className="absolute right-4 top-4 z-10 text-2xl">star</div>
-            <img className="absolute right-0 top-[13px] h-[92%] w-[90%] rounded-[44%_56%_42%_58%/56%_37%_63%_44%] object-cover object-[48%_center]" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=85" alt="" />
+            <img className="absolute right-0 top-3.25 h-[92%] w-[90%] rounded-[44%_56%_42%_58%/56%_37%_63%_44%] object-cover object-[48%_center]" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=85" alt="" />
             <div className="absolute bottom-5 left-0 z-10 text-xl">lightning</div>
             <div className="absolute bottom-0 right-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md border-l-wine border-l-6 w-50">
               <p className="text-wine font-bold text-xl">24+</p>
@@ -55,7 +55,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="max-w-4xl m-auto md:pb-30 md:pt-30 pb-10 pt-10 " id="our-school">
+      <section className="max-w-4xl m-auto md:pb-30 md:pt-15 pb-10 pt-10" id="our-school">
         <p className="text-wine font-semibold tracking-widest uppercase text-sm ">Why northstar?</p>
         <div className="flex flex-col md:flex-row md:justify-between mb-10">
           <h2 className="text-ink text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
