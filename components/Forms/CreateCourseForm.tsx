@@ -16,18 +16,18 @@ const CreateCourseForm = () => {
         mutationFn: CreateCourseAction
     })
     return (
-        <form onSubmit={handleSubmit(values => mutate(values))}>
+        <form className="flex flex-col" onSubmit={handleSubmit(values => mutate(values))}>
             <div className="flex flex-col mt-3">
-                <label>Course name:</label>
-                <input className="border" {...register("name")} type="text" placeholder="course name..." />
+                <label>Name:</label>
+                <input className="rounded border-2 border-wine" {...register("name")} type="text" placeholder="course name..." />
                 {errors.name && <ErrorMessage error={errors.name.message!} />}
             </div>
             <div className="flex flex-col mt-3">
-                <label>Course description:</label>
-                <textarea {...register("description")} className="border" placeholder="course description..." />
+                <label>Description:</label>
+                <textarea {...register("description")} className="rounded border-2 border-wine" placeholder="course description..." />
                 {errors.description && <ErrorMessage error={errors.description?.message!} />}
             </div>
-            <button>Create course</button>
+            <button className="bg-wine text-gold rounded py-1 px-2 font-semibold mt-3">Create course</button>
             {error && <ErrorMessage error={error.message} />}
         </form>
     )
