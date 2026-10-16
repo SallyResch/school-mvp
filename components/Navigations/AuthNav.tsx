@@ -12,15 +12,17 @@ const GeneralNav = async () => {
         <div className="flex flex-row">
             {user ?
                 <div className="flex flex-row items-center">
-                    {userData!.roles.name === "Student" ? <Link href={"/student"}>Workspace</Link> : <Link href={"/teacher"}>Workspace</Link>}
-
-                    <div onClick={Logout} className="border rounded p-2 hover:shadow-2xl font-semibold hover:cursor-pointer">Logout</div>
+                    {
+                        userData!.roles.name === "Student" ?
+                            <Link className="text-navy bg-orange px-2 py-1 rounded mr-2.5" href={"/student"}>Workspace</Link> : <Link className="text-navy bg-orange px-2 py-1 rounded mr-2.5" href={"/teacher"}>Workspace</Link>
+                    }
+                    <div onClick={Logout} className="rounded px-2 py-1 font-semibold hover:cursor-pointer bg-navy text-gold">Logout</div>
                 </div>
                 :
                 <div className="flex flex-row justify-evenly items-center">
                     <HomeNav />
-                    <Link className="bg-navy text-paper p-2 rounded-xl" href={"/login"}>Portal</Link>
-                    <Link className="border rounded font-semibold" href={"/signup"}>Sign up</Link>
+                    <Link className="px-2 py-1 rounded bg-navy text-gold" href={"/login"}>Portal</Link>
+                    <Link className="px-2 py-1 rounded font-semibold text-navy bg-orange" href={"/signup"}>Sign up</Link>
                 </div>}
         </div>
     )
