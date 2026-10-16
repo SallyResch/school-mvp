@@ -12,7 +12,6 @@ const AllAssignments = ({ assignments }: { assignments: AllAssignmentsType }) =>
         queryFn: async () => {
             const { data, error } = await getAllAssignments(supabase)
             if (error) throw new Error
-            console.log(data)
             return data
         },
         initialData: assignments,

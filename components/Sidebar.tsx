@@ -5,8 +5,6 @@ import Link from "next/link"
 const Sidebar = async () => {
     const supabase = await createClient()
     const userProfile = await getLoggedInUser(supabase)
-    console.log("Sidebar profile: ", userProfile)
-    console.log("Role ID: ", userProfile?.role_id)
     return (
         <div className="hidden md:block bg-navy p-6">
             {userProfile?.roles.name === "Student" ?

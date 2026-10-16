@@ -72,7 +72,5 @@ export const updateSession = async (request:NextRequest)=>{
         return NextResponse.redirect(new URL("/", request.url))
     }
 }
-   
-  console.log("proxy update session")
   return supabaseResponse
 }

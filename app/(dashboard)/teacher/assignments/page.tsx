@@ -11,7 +11,7 @@ const AssignmentsPage = async () => {
     }
     return (
         <div>
-            <AllAssignments assignments={data} />
+            <AllAssignments assignments={data!} />
         </div>)
 }
 export default AssignmentsPage
