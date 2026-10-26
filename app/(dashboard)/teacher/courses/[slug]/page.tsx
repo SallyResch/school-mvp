@@ -24,7 +24,7 @@ const CoursePage = async ({ params }: { params: { slug: string } }) => {
           </div>
           {isAuthor &&
             <div className="flex flex-row">
-              <button className="bg-red-600 text-white p-2 rounded m-1">Edit Course</button>
+              <button className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Edit Course</button>
               <DeleteCourse id={data.id} />
             </div>}
         </div>

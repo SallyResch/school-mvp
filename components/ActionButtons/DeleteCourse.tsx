@@ -8,7 +8,7 @@ const DeleteCourse = ({ id }: { id: string }) => {
         onSettled: () => toast("The course ahs been deleted")
     })
     return (
-        <button onClick={() => mutate(id)} className="bg-red-600 text-white p-2 rounded m-1">Delete Course</button>
+        <button onClick={() => mutate(id)} className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Delete Course</button>
     )
 }
 
