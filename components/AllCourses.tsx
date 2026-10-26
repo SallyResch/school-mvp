@@ -5,9 +5,15 @@ import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 
+type AllCoursesProps = {
+    courses: AllCoursesType
+    role: "Student" | "Teacher"
+}
+
 //export const revalidate = 600;
-const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
+const AllCourses = ({ courses, role }: AllCoursesProps) => {
     const supabase = createClient()
+    const basePath = role === "Student" ? "/student" : "/teacher"
     const { data } = useQuery({
         queryKey: ['all-courses'],
         queryFn: async () => {
@@ -22,7 +28,7 @@ const AllCourses = ({ courses }: { courses: AllCoursesType }) => {
     return (
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((course) => (
-                <Link href={`/teacher/courses/${course.slug}`} className="border" key={course.slug}>
+                <Link href={`${basePath}/courses/${course.slug}`} className="border" key={course.slug}>
                     <p>{course.name}</p>
                     <p>{course.description}</p>
                     <p>{course.created_at}</p>
