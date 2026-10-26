@@ -8,10 +8,8 @@ export const getAllCourses = async (supabase:ReturnType<typeof createClient>)=>{
 }
 
 export const getAllAssignments = async (supabase:ReturnType<typeof createClient>)=>{
-    //console.log("Supabase: ", supabase)
-    //console.log("From: ", supabase?.from)
     return await supabase.from("assignments")
-    .select('id, name, description, created_at, slug')
+    .select('id, name, description, created_at, course_id, slug')
     .order('created_at', { ascending: true })
 }
 
@@ -29,6 +27,15 @@ export const getSingleAssignment = async (slug:string)=>{
    .select('id, name, description, created_at, slug, course_id, teacher_id("id","name","last_name")')
     .eq('slug', slug)
     .single()
+}
+
+export const getAssignmentComments = async(
+    supabase: ReturnType<typeof createClient>, 
+    assignmentId:string)=>{
+        return await supabase.from("comments")
+        .select(`id, content, created_at, user_id, users("name","last_name")`)
+        .eq("assignment_id",assignmentId)
+        .order("created_at", {ascending:true})
 }
 
 export const searchCourses = async (searchTerm:string)=>{
@@ -49,6 +56,5 @@ export const getLoggedInUser = async(supabase:ReturnType<typeof createClient>)=>
         console.error("could not fetch userprofile: ", error.message)
         return null
     }
-   
     return data
 }

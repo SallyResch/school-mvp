@@ -26,19 +26,19 @@ const CreateAssignmentForm = ({ courses }: CreateAssignmentFormProps) => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(values => mutate(values))}>
-                <div className="flex flex-col">
-                    <label>Assignment name: </label>
-                    <input className="bg-white border p-1" type="text" {...register("name")} placeholder="assignment name.." />
-                    {errors.name && <ErrorMessage error={errors.name.message!} />}
-                </div>
-                <div className="flex flex-col">
-                    <label>Description: </label>
-                    <textarea className="bg-white border p-1" {...register("description")} placeholder="description.." />
-                    {errors.description && <ErrorMessage error={errors.description?.message!} />}
-                </div>
-                <select {...register("course_id")} defaultValue={""}>
+        <form onSubmit={handleSubmit(values => mutate(values))}>
+            <div className="flex flex-col">
+                <label>Assignment name: </label>
+                <input className="bg-white border p-1" type="text" {...register("name")} placeholder="assignment name.." />
+                {errors.name && <ErrorMessage error={errors.name.message!} />}
+            </div>
+            <div className="flex flex-col">
+                <label>Description: </label>
+                <textarea className="bg-white border p-1" {...register("description")} placeholder="description.." />
+                {errors.description && <ErrorMessage error={errors.description?.message!} />}
+            </div>
+            <div className="flex flex-col">
+                <select className="mt-3 mb-3 border-wine border-2 rounded" {...register("course_id")} defaultValue={""}>
                     <option value="" disabled>
                         Select a course
                     </option>
@@ -47,9 +47,9 @@ const CreateAssignmentForm = ({ courses }: CreateAssignmentFormProps) => {
                     ))}
                 </select>
                 {errors.course_id && <ErrorMessage error={errors.course_id!.message!} />}
-                <button>Create assignment</button>
-            </form>
-        </div>
+                <button className="bg-wine text-gold rounded py-2 font-semibold">Create assignment</button>
+            </div>
+        </form>
     )
 }
 
