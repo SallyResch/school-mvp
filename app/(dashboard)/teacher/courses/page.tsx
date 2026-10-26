@@ -11,7 +11,7 @@ const CoursesPage = async () => {
     const { data, error } = await getAllCourses(supabase)
     if (!userProfile) throw new Error("User Not Found")
 
-    if (userRole !== "Student" || "Teacher") {
+    if (userRole !== "Student" && userRole !== "Teacher") {
         throw new Error("Invalid userrole")
     }
     return (
