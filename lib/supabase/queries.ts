@@ -29,6 +29,15 @@ export const getSingleAssignment = async (slug:string)=>{
     .single()
 }
 
+export const getAssignmentComments = async(
+    supabase: ReturnType<typeof createClient>, 
+    assignmentId:string)=>{
+        return await supabase.from("comments")
+        .select(`id, content, created_at, user_id, users("name","last_name")`)
+        .eq("assignment_id",assignmentId)
+        .order("created_at", {ascending:true})
+}
+
 export const searchCourses = async (searchTerm:string)=>{
     const supabase = createClient()
     return await supabase
