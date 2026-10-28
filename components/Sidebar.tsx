@@ -10,8 +10,8 @@ const Sidebar = async () => {
             {userProfile?.roles.name === "Student" ?
                 <div className="flex flex-col">
                     <Link className="text-gold text-xs font-bold uppercase hover:cursor-pointer text-center" href={"/student"}>{userProfile!.name} workspace</Link>
-                    <Link className="text-muted font-bold" href={"/student/courses"}>Courses</Link>
-                    <Link className="text-muted font-bold" href={"/student/assignments"}>Assignments</Link>
+                    <Link className="text-muted font-bold" href={"/student/#courses"}>Courses</Link>
+                    <Link className="text-muted font-bold" href={"/student/#assignments"}>Assignments</Link>
                 </div>
                 :
                 <div className="flex flex-col">

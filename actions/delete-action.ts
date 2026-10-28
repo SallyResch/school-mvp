@@ -15,17 +15,17 @@ export const DeleteAssignmentAction = async(assignmentId:string)=>{
     redirect("/teacher/assignments")
 }
 
-export const DeleteCommentAction = async(comment_id:string, assignment_id:string)=>{
+export const DeleteCommentAction = async(comment_id:string)=>{
     const supabase = await createClient()
     const {data: {user}} = await supabase.auth.getUser()
-    const {error} = await supabase
+    const {data,error} = await supabase
     .from("comments")
     .delete()
     .eq("id", comment_id)
-
+    .select("assignment_id")
 
     if(error) return {success:false, error:"Could not remove comment"}
-
+    const assignment_id = data[0].assignment_id
 
     const {data: profile}= await supabase
     .from("users")

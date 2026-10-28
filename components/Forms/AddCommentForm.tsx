@@ -17,7 +17,7 @@ const AddCommentForm = ({ assignment_id }: { assignment_id: string }) => {
     return (
         <div>
             <form onSubmit={handleSubmit(values => mutate({ commentdata: { content: values.content }, assignment_id }))} className="flex flex-col items-start">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <label htmlFor="content">Content</label>
                     <textarea className="border rounded" placeholder="add your comment" {...register("content")} />
                 </div>
