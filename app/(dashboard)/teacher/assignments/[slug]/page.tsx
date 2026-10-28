@@ -1,5 +1,7 @@
 import DeleteAssignment from "@/components/ActionButtons/DeleteAssignment"
-import { getAssignmentComments, getSingleAssignment } from "@/lib/supabase/queries"
+import AllComments from "@/components/AllComments"
+import AddCommentForm from "@/components/Forms/AddCommentForm"
+import { getSingleAssignment } from "@/lib/supabase/queries"
 import { createClient } from "@/lib/supabase/server-client"
 
 const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
@@ -8,9 +10,7 @@ const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
   const { data, error } = await getSingleAssignment(slug)
   const { data: { user } } = await supabase.auth.getUser()
   const isAuthor = user && data && user.id === data.teacher_id.id ? true : false
-  const { data: comments, error: commentsError } = await getAssignmentComments(supabase, data!.id)
 
-  if (commentsError) throw commentsError
   return (
     <div className="max-w-md m-auto">
       {data! &&
@@ -24,15 +24,9 @@ const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
               <button className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Edit Course</button>
               <DeleteAssignment id={data.id} />
             </div>}
-          {comments.length === 0 ? (<p>No comments yet</p>) : (comments.map((comment) => (
-            <div key={comment.id}>
-              <p>{comment.content}</p>
-              <div className="flex flex-row justify-end text-xs">
-                <p>- {comment.users!.name}</p>
-                <p className="ml-1">{comment.users!.last_name}</p>
-              </div>
-            </div>
-          )))}
+          <AllComments assignmentId={data!.id} />
+
+          <AddCommentForm assignment_id={data!.id} />
         </div>
       }
     </div>

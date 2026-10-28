@@ -25,5 +25,9 @@ export const assignmentSchema = z.object({
 })
 
 export const commentSchema = z.object({
-    content: z.string().min(4, "must be a minimum of 4 characters long")
+    content: z
+    .string()
+    .trim()
+    .min(4, "must be a minimum of 4 characters")
+    .max(2000, "Max 2000 characters")
 })
