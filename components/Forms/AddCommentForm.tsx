@@ -8,17 +8,20 @@ import { useMutation } from "@tanstack/react-query"
 import { AddCommentAction } from "@/actions/addComment-action"
 
 const AddCommentForm = ({ assignment_id }: { assignment_id: string }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: zodResolver(commentSchema)
     })
     const { mutate, error } = useMutation({
-        mutationFn: AddCommentAction
+        mutationFn: AddCommentAction,
+        onSuccess: () => {
+            reset()
+        }
     })
     return (
         <div>
             <form onSubmit={handleSubmit(values => mutate({ commentdata: { content: values.content }, assignment_id }))} className="flex flex-col items-start">
                 <div className="flex flex-col w-full">
-                    <label htmlFor="content">Content</label>
+                    <label htmlFor="content">Comment</label>
                     <textarea className="border rounded" placeholder="add your comment" {...register("content")} />
                 </div>
                 {errors.content && <ErrorMessage error={errors.content.message!} />}

@@ -14,9 +14,9 @@ export const EditCourse = async ({coursedata, courseId}:{coursedata:z.infer<type
 
     const {data, error} = await supabase.from("courses").select("*").eq("id", courseId).single()
 
-    if(error || !data) throw new Error("Post does not exist!")
+    if(error || !data) throw new Error("Course does not exist!")
 
-    let {data: updatedPost} = await supabase.from("courses")
+    let {data: updatedCourse} = await supabase.from("courses")
     .update({ name: parsedData.name,description: parsedData.description, slug: slugify(parsedData.name)})
     .eq("id",courseId)
     .select("slug")
@@ -24,46 +24,55 @@ export const EditCourse = async ({coursedata, courseId}:{coursedata:z.infer<type
     .throwOnError()
 
     revalidatePath("/")
-    redirect(`/${updatedPost.slug}`)
+    redirect(`/${updatedCourse.slug}`)
 }
 
-//rewrite this
-export const EditAssignment = async ({coursedata, courseId}:{coursedata:z.infer<typeof assignmentSchema>, courseId: string})=>{
-    const parsedData = courseSchema.parse(coursedata)
+export const EditAssignment = async ({assignmentdata, assignmentId}:{assignmentdata:z.infer<typeof assignmentSchema>, assignmentId: string})=>{
+    const parsedData = assignmentSchema.parse(assignmentdata)
     const supabase = await createClient()
 
-    const {data, error} = await supabase.from("courses").select("*").eq("id", courseId).single()
+    const {data, error} = await supabase.from("courses").select("*").eq("id", assignmentId).single()
 
     if(error || !data) throw new Error("Post does not exist!")
 
-    let {data: updatedPost} = await supabase.from("courses")
+    let {data: updatedAssignment} = await supabase.from("assignments")
     .update({ name: parsedData.name,description: parsedData.description, slug: slugify(parsedData.name)})
-    .eq("id",courseId)
+    .eq("id",assignmentId)
     .select("slug")
     .single()
     .throwOnError()
 
     revalidatePath("/")
-    redirect(`/${updatedPost.slug}`)
+    redirect(`/${updatedAssignment.slug}`)
 }
 
-//rewrite this
-export const EditComment = async ({coursedata, courseId}:{coursedata:z.infer<typeof commentSchema>, courseId: string})=>{
-    const parsedData = courseSchema.parse(coursedata)
+export const EditComment = async ({commentdata, commentId}:{commentdata:z.infer<typeof commentSchema>, commentId: string})=>{
+    const parsedData = commentSchema.parse(commentdata)
     const supabase = await createClient()
 
-    const {data, error} = await supabase.from("courses").select("*").eq("id", courseId).single()
-
-    if(error || !data) throw new Error("Post does not exist!")
-
-    let {data: updatedPost} = await supabase.from("courses")
-    .update({ name: parsedData.name,description: parsedData.description, slug: slugify(parsedData.name)})
-    .eq("id",courseId)
-    .select("slug")
+    const {data: comment, error} = await supabase
+    .from("comments")
+    .select(`id, assignment_id, assignments(slug)`)
+    .eq("id", commentId)
     .single()
-    .throwOnError()
 
+    if(error || !comment) throw new Error("Comment does not exist!")
+
+    let {error: updateError} = await supabase
+    .from("comments")
+    .update({content: parsedData.content})
+    .eq("id",commentId)
+
+    if(updateError){
+        throw new Error(updateError.message)
+    }
     revalidatePath("/")
-    redirect(`/${updatedPost.slug}`)
+
+    const assignmentSlug = comment.assignments.slug
+    if(!assignmentSlug || Array.isArray(assignmentSlug)){
+        throw new Error("Could not find the related assignment!")
+    }
+    revalidatePath(`/teacher/assignments/${assignmentSlug}`)
+    redirect(`/teacher/assignments/${assignmentSlug}`)
 }
 

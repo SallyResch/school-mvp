@@ -1,4 +1,5 @@
 import DeleteAssignment from "@/components/ActionButtons/DeleteAssignment"
+import EditButton from "@/components/ActionButtons/EditButton"
 import AllComments from "@/components/AllComments"
 import AddCommentForm from "@/components/Forms/AddCommentForm"
 import { getSingleAssignment } from "@/lib/supabase/queries"
@@ -21,11 +22,10 @@ const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
 
           {isAuthor &&
             <div className="flex flex-row">
-              <button className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Edit Course</button>
+              <EditButton href={`${slug}/edit`} />
               <DeleteAssignment id={data.id} />
             </div>}
           <AllComments assignmentId={data!.id} />
-
           <AddCommentForm assignment_id={data!.id} />
         </div>
       }
