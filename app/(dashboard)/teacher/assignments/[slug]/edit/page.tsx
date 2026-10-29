@@ -1,7 +1,10 @@
+import EditAssignmentForm from "@/components/Forms/EditAssignmentForm"
 
 const EditAssignmentPage = () => {
     return (
-        <div>EditAssignmentPage</div>
+        <div>
+            <EditAssignmentForm />
+        </div>
     )
 }
 

@@ -1,8 +1,12 @@
+import EditCourseForm from "@/components/Forms/EditCourseForm"
 
-const EditAssignmentPage = () => {
+
+const EditCoursePage = () => {
     return (
-        <div>EditAssignmentPage</div>
+        <div>
+            <EditCourseForm />
+        </div>
     )
 }
 
-export default EditAssignmentPage
+export default EditCoursePage
