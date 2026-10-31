@@ -49,7 +49,11 @@ export const EditAssignment = async ({assignmentdata, assignmentId}:{assignmentd
 export const EditComment = async ({commentdata, commentId}:{commentdata:z.infer<typeof commentSchema>, commentId: string})=>{
     const parsedData = commentSchema.parse(commentdata)
     const supabase = await createClient()
+    const {data: {user}}=await supabase.auth.getUser()
 
+    if(!user){
+        throw new Error("You must be logged in!")
+    }
     const {data: comment, error} = await supabase
     .from("comments")
     .select(`id, assignment_id, assignments(slug)`)

@@ -16,7 +16,7 @@ export const getAllAssignments = async (supabase:ReturnType<typeof createClient>
 export const getSingleCourse = async (slug:string)=>{
     const supabase = createClient()
     return await supabase.from("courses")
-    .select('id, name, description,teacher("id", "name", "last_name")')
+    .select('id, name, description, teacher("id", "name", "last_name"), image')
     .eq('slug', slug)
     .single()
 }
