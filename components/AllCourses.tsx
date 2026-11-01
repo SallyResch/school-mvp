@@ -4,12 +4,12 @@ import { AllCoursesType } from '@/lib/supabase/types'
 import { createClient } from '@/lib/supabase/browser-client';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
+import { formatDate } from '@/lib/utils/formatDate';
 
 type AllCoursesProps = {
     courses: AllCoursesType
     role: "Student" | "Teacher"
 }
-
 //export const revalidate = 600;
 const AllCourses = ({ courses, role }: AllCoursesProps) => {
     const supabase = createClient()
@@ -31,7 +31,7 @@ const AllCourses = ({ courses, role }: AllCoursesProps) => {
                 <Link href={`${basePath}/courses/${course.slug}`} className="border" key={course.slug}>
                     <p>{course.name}</p>
                     <p>{course.description}</p>
-                    <p>{course.created_at}</p>
+                    <p>Created: {formatDate(course.created_at)}</p>
                 </Link>
             ))}
         </div>)

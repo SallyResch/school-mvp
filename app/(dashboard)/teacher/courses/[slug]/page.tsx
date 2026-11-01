@@ -16,6 +16,8 @@ const CoursePage = async ({ params }: { params: { slug: string } }) => {
         <div key={data.id}>
           <h1>Course: {data.name}</h1>
           <p >{data.description}</p>
+          {data.image && <img src={data.image} alt={data.name} />}
+
           <div className="border w-fit p-2">
             <h3>Author</h3>
             <div className="flex flex-row text-lightOrange bg-blue p-2 w-fit m-1">
