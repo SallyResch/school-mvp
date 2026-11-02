@@ -29,7 +29,7 @@ export default async function Home() {
             <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md w-50 text-sm ">
               <Sparkles className="text-gold bg-cream" />
               <div>
-                <p>Curiosity first</p>
+                <p className="font-semibold text-navy">Curiosity first</p>
                 <p>Learning that sparks joy</p>
               </div>
             </div>
@@ -37,7 +37,7 @@ export default async function Home() {
             <img className="absolute right-0 top-3.25 h-[92%] w-[90%] rounded-[44%_56%_42%_58%/56%_37%_63%_44%] object-cover object-[48%_center]" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1400&q=85" alt="" />
             <div className="absolute bottom-5 left-0 z-10 text-xl"><Zap className="text-gold fill-gold" /></div>
             <div className="absolute bottom-0 right-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md border-l-wine border-l-6 w-50">
-              <p className="text-wine font-bold text-xl">24+</p>
+              <p className="text-wine font-bold text-2xl">24+</p>
               <p className="text-sm">clubs, teams & creative studios</p>
             </div>
           </div>
