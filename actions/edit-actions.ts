@@ -6,6 +6,8 @@ import { createClient } from "@/lib/supabase/server-client"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { slugify } from "@/lib/supabase/slugify"
+import { uploadImage } from "@/lib/supabase/uploadImage"
+import { deleteImage } from "@/lib/supabase/deleteImage"
 
 
 export const EditCourse = async ({coursedata, courseId}:{coursedata:z.infer<typeof courseSchema>, courseId: string})=>{
@@ -16,34 +18,72 @@ export const EditCourse = async ({coursedata, courseId}:{coursedata:z.infer<type
 
     if(error || !data) throw new Error("Course does not exist!")
 
+    let imageUrl = data.image
+
+    if(coursedata.image){
+        const imageFile = coursedata.image.get("image")
+        if(!(imageFile instanceof File)){
+            throw new Error("image is not in a valid format")
+        }
+        imageUrl = await uploadImage(imageFile)
+    }
+
+    if(data.image){
+        await deleteImage(data.image)
+    }
+    
     let {data: updatedCourse} = await supabase.from("courses")
-    .update({ name: parsedData.name,description: parsedData.description, slug: slugify(parsedData.name)})
+    .update({ name: parsedData.name, description: parsedData.description, slug: slugify(parsedData.name), image: imageUrl})
     .eq("id",courseId)
     .select("slug")
     .single()
     .throwOnError()
 
     revalidatePath("/")
-    redirect(`/${updatedCourse.slug}`)
+    redirect(`/teacher/courses/${updatedCourse.slug}`)
 }
 
-export const EditAssignment = async ({assignmentdata, assignmentId}:{assignmentdata:z.infer<typeof assignmentSchema>, assignmentId: string})=>{
+export const EditAssignment = async ({
+    assignmentdata, 
+    assignmentId}:
+    {assignmentdata:z.infer<typeof assignmentSchema>,
+     assignmentId: string
+    })=>{
+
     const parsedData = assignmentSchema.parse(assignmentdata)
     const supabase = await createClient()
+    const {data:{user}, error: authError} = await supabase.auth.getUser()
 
-    const {data, error} = await supabase.from("courses").select("*").eq("id", assignmentId).single()
+    if(authError || !user){
+        throw new Error("Unauthorized access!")
+    }
+    const {data:assignment, error: assignmentError} = await supabase.from("assignments").select("id, teacher_id").eq("id", assignmentId).single()
 
-    if(error || !data) throw new Error("Post does not exist!")
+    if(assignmentError || !assignment) throw new Error("Assignment does not exist!")
 
-    let {data: updatedAssignment} = await supabase.from("assignments")
-    .update({ name: parsedData.name,description: parsedData.description, slug: slugify(parsedData.name)})
+    if(assignment.teacher_id !== user.id){
+        throw new Error("You are not allowed to edit this assignment!")
+    }
+
+    let {data: updatedAssignment, error: updateError} = await supabase
+    .from("assignments")
+    .update({ 
+        name: parsedData.name,
+        description: parsedData.description,
+        slug: slugify(parsedData.name),
+        course_id:parsedData.course_id
+    })
     .eq("id",assignmentId)
+    .eq("teacher_id", user.id)
     .select("slug")
     .single()
-    .throwOnError()
+
+    if(updateError || !updatedAssignment){
+        throw new Error(updateError?.message || "Could not update assignment")
+    }
 
     revalidatePath("/")
-    redirect(`/${updatedAssignment.slug}`)
+    redirect(`/teacher/assignments/${updatedAssignment.slug}`)
 }
 
 export const EditComment = async ({commentdata, commentId}:{commentdata:z.infer<typeof commentSchema>, commentId: string})=>{

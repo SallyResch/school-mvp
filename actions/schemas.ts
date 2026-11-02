@@ -21,7 +21,7 @@ export const courseSchema = z.object({
 export const assignmentSchema = z.object({
     name: z.string().min(3, "Must be atleast 3 characters long"),
     description: z.string().min(15, "Must be atleast 15 characters long"),
-    course_id: z.uuid("Please select a course")
+    course_id: z.uuid("Please select a course").min(1)
 })
 
 export const commentSchema = z.object({
