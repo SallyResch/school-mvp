@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A fullstack application containing:
+Typescript
+Tailwind css
+Supabase database
+Zod
+Sonner
+Tanstack
+Hookform
 
-## Getting Started
+Application contains users with roles of either "Teacher" och "Student"
+and is there by redirected to each appropriate route.
 
-First, run the development server:
+This is what a user with role "Student" is able to do:
+Account & Authentication
+- Create a student account.
+- Log in and log out.
+- View personal profile information.
+Courses
+- View available courses.
+- Open a course and read its description.
+- See who created the course.
+Assignments
+- View available assignments.
+- Open an assignment and read its instructions and description.
+- See which course an assignment belongs to.
+- See who created the assignment.
+Comments & Communication
+- Add comments to assignments.
+- Read teachers' replies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is what a user with role "Teacher" is able to do:
+Account & Authentication
+- Log in and log out.
+- View personal profile information.
+Courses
+- View available courses.
+- Create new courses.
+- Edit courses created by themselves.
+- Delete courses created by themselves.
+- Add course names, descriptions and image.
+- See who created a course.
+Assignments
+- View available assignments.
+- Create new assignments.
+- Assign assignments to any available course, regardless of who created the course.
+- Edit assignments created by themselves.
+- Delete assignments created by themselves.
+- Set assignment names, descriptions, course.
+Comments & Communication
+- View students' comments on assignments.
+- Reply to students' questions.
