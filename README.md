@@ -26,6 +26,7 @@ Assignments
 - See who created the assignment.
 Comments & Communication
 - Add comments to assignments.
+- delete own comment
 - Read teachers' replies.
 
 This is what a user with role "Teacher" is able to do:
