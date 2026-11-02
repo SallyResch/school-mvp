@@ -15,11 +15,19 @@ export const signupSchema = z.object({
 export const courseSchema = z.object({
     name: z.string().min(3, "Must be atleast 3 characters long"),
     description: z.string().min(15, "Must be atleast 15 characters long"),
-    //image:z.instanceof(FormData).optional()
+    image:z.instanceof(FormData).optional()
 })
 
 export const assignmentSchema = z.object({
     name: z.string().min(3, "Must be atleast 3 characters long"),
     description: z.string().min(15, "Must be atleast 15 characters long"),
-    course_id: z.uuid("Please select a course")
+    course_id: z.uuid("Please select a course").min(1)
+})
+
+export const commentSchema = z.object({
+    content: z
+    .string()
+    .trim()
+    .min(4, "must be a minimum of 4 characters")
+    .max(2000, "Max 2000 characters")
 })

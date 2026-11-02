@@ -1,4 +1,5 @@
 import DeleteCourse from "@/components/ActionButtons/DeleteCourse"
+import EditButton from "@/components/ActionButtons/EditButton"
 import { getSingleCourse } from "@/lib/supabase/queries"
 import { createClient } from "@/lib/supabase/server-client"
 
@@ -15,6 +16,8 @@ const CoursePage = async ({ params }: { params: { slug: string } }) => {
         <div key={data.id}>
           <h1>Course: {data.name}</h1>
           <p >{data.description}</p>
+          {data.image && <img src={data.image} alt={data.name} />}
+
           <div className="border w-fit p-2">
             <h3>Author</h3>
             <div className="flex flex-row text-lightOrange bg-blue p-2 w-fit m-1">
@@ -24,7 +27,7 @@ const CoursePage = async ({ params }: { params: { slug: string } }) => {
           </div>
           {isAuthor &&
             <div className="flex flex-row">
-              <button className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Edit Course</button>
+              <EditButton href={`${slug}/edit`} />
               <DeleteCourse id={data.id} />
             </div>}
         </div>
