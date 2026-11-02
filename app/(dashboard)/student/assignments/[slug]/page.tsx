@@ -1,4 +1,3 @@
-import DeleteAssignment from "@/components/ActionButtons/DeleteAssignment"
 import AllComments from "@/components/AllComments"
 import AddCommentForm from "@/components/Forms/AddCommentForm"
 import { getSingleAssignment } from "@/lib/supabase/queries"
@@ -9,24 +8,16 @@ const AssignmentPage = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params
     const { data, error } = await getSingleAssignment(slug)
     const { data: { user } } = await supabase.auth.getUser()
-    const isAuthor = user && data && user.id === data.teacher_id.id ? true : false
     return (
         <div className="max-w-md m-auto">
-            {data! &&
+            {data &&
                 <div key={data.id}>
                     <h1>Assignment: {data.name}</h1>
                     <p>Description: {data.description}</p>
                     <p>Author: {data.teacher_id.name} {data.teacher_id.last_name}</p>
-                    {isAuthor &&
-                        <div className="flex flex-row">
-                            <button className="bg-red-600 text-white p-2 rounded m-1 hover:cursor-pointer">Edit Course</button>
-                            <DeleteAssignment id={data.id} />
-                        </div>
-                    }
                 </div>
             }
             <AllComments assignmentId={data!.id} />
-
             <AddCommentForm assignment_id={data!.id} />
         </div>
     )

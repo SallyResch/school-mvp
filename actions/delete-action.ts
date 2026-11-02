@@ -1,8 +1,8 @@
 "use server"
-
 import { createClient } from "@/lib/supabase/server-client"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+import { success } from "zod"
 
 export const DeleteCourseAction = async(courseId:string)=>{
     const supabase = await createClient()
@@ -17,21 +17,41 @@ export const DeleteAssignmentAction = async(assignmentId:string)=>{
 
 export const DeleteCommentAction = async(comment_id:string)=>{
     const supabase = await createClient()
+
     const {data: {user}} = await supabase.auth.getUser()
-    const {data,error} = await supabase
+
+    const {data:comment ,error: commentError} = await supabase
+    .from("comments")
+    .select("assignment_id")
+    .eq("id", comment_id)
+    .single()
+
+    if(commentError || !comment){
+        return{ success:false, error: "Comment could not be found"}
+    }
+
+    const{error: deleteError} = await supabase
     .from("comments")
     .delete()
     .eq("id", comment_id)
-    .select("assignment_id")
 
-    if(error) return {success:false, error:"Could not remove comment"}
-    const assignment_id = data[0].assignment_id
+    if(deleteError){
+        return {success: false, error: "Could not remove comment"}
+    }
 
-    const {data: profile}= await supabase
+    const {data:profile, error: profileError} = await supabase
     .from("users")
-    .select(`role_id, roles(name)`)
+    .select('role_id, roles("name")')
     .eq("id", user!.id)
     .single()
-    const base = profile!.roles.name === "Teacher" ? "teacher" : "student"
-    revalidatePath(`/${base}/assignments/${assignment_id}`)
+
+    if(profileError || !profile){
+        return {success: false, error: "Could not retrive user profile"}
+    }
+
+    const base = profile.roles.name === "Teacher" ? "teacher" : "student"
+
+    revalidatePath(`/${base}/assignments/${comment.assignment_id}`)
+    redirect
+
 }
