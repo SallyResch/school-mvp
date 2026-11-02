@@ -2,6 +2,7 @@
 import { createClient } from '@/lib/supabase/browser-client';
 import { getAllAssignments } from '@/lib/supabase/queries';
 import { AllAssignmentsType } from '@/lib/supabase/types';
+import { formatDate } from '@/lib/utils/formatDate';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
@@ -28,9 +29,9 @@ const AllAssignments = ({ assignments, role }: AllAssignmentProps) => {
         <div className="grid grid-cols-2 m-auto">
             {data && data.map((assignment) => (
                 <Link href={`${basePath}/assignments/${assignment.slug}`} className="border" key={assignment.slug}>
-                    <p>Assignment name: {assignment.name}</p>
+                    <h3 className='text-2xl'>{assignment.name}</h3>
                     <p>Description: {assignment.description}</p>
-                    <p>{assignment.created_at}</p>
+                    <p>Created: {formatDate(assignment.created_at)}</p>
                 </Link>
             ))}
         </div>)
