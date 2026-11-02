@@ -49,3 +49,4 @@ Assignments
 Comments & Communication
 - View students' comments on assignments.
 - Reply to students' questions.
+- Delete students comments on own assignment or their own comment on their assignment
