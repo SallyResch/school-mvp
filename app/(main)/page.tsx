@@ -1,4 +1,4 @@
-import { Astroid, Sparkle, Sparkles, Zap } from "lucide-react";
+import { Astroid, Check, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
 import Link from "next/link";
 
 
@@ -71,7 +71,7 @@ export default async function Home() {
           <div className="bg-navy text-paper flex flex-col p-4 w-75 rounded-2xl md:mr-5">
             <div className="flex flex-row justify-between mb-10">
               <div>
-                icon
+                <Sparkles />
               </div>
               <div>
                 01
@@ -86,32 +86,32 @@ export default async function Home() {
           <div className="bg-orange text-ink flex flex-col p-4 w-75 rounded-2xl mt-5 mb-5">
             <div className="flex flex-row justify-between mb-10">
               <div>
-                icon
+                <Users className="text-white" />
               </div>
               <div>
-                01
+                02
               </div>
             </div>
             <div className="mb-10">
-              <h3 className="text-2xl mb-4">Learning with purpose</h3>
-              <p className="text-muted font-semibold">Real projects, thoughtful questions, and lessons that connect beyond the classroom.</p>
+              <h3 className="text-2xl mb-4">Known and supported</h3>
+              <p className="text-muted font-semibold">Small classes and caring mentors mean every student has someone in their corner.</p>
             </div>
-            <Link href={"/teacher/courses"}>Explore academics</Link>
+            <Link href={"/teacher/courses"}>Meet our community</Link>
           </div>
           <div className="bg-wine text-paper flex flex-col p-4 w-75 rounded-2xl md:ml-5">
             <div className="flex flex-row justify-between mb-10">
               <div>
-                icon
+                <TrendingUp />
               </div>
               <div>
-                01
+                03
               </div>
             </div>
             <div className="mb-10">
-              <h3 className="text-2xl mb-4">Learning with purpose</h3>
-              <p className="text-muted font-semibold">Real projects, thoughtful questions, and lessons that connect beyond the classroom.</p>
+              <h3 className="text-2xl mb-4">Ready for what's next</h3>
+              <p className="text-muted font-semibold">Confidence, character, and skills that prepare students for a changing world.</p>
             </div>
-            <Link href={"/teacher/courses"}>Explore academics</Link>
+            <Link href={"/teacher/courses"}>See our outcomes</Link>
           </div>
         </div>
       </section>
@@ -125,25 +125,25 @@ export default async function Home() {
           <h3 className="text-5xl">Big ideas. Real <br /> friendships. <span className="text-orange">Every day.</span></h3>
           <p className="text-muted min-w-75 max-w-125">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
           <div>
-            <div className="flex flex-row">
-              <p>icon</p>
+            <div className="flex flex-row items-center">
+              <Check className="bg-gold text-wine rounded-full p-1" />
               <div>
-                <p>bold text</p>
-                <p>small text</p>
+                <p className="font-bold text-navy">Joyful, active learning</p>
+                <p>Classes built around curiosity and collaboration.</p>
               </div>
             </div>
-            <div className="flex flex-row">
-              <p>icon</p>
+            <div className="flex flex-row items-center">
+              <Check className="bg-gold text-wine rounded-full p-1" />
               <div>
-                <p>bold text</p>
-                <p>small text</p>
+                <p className="font-bold text-navy">A community that feels close</p>
+                <p>Belonging isn't a program here. Its how we do school.</p>
               </div>
             </div>
-            <div className="flex flex-row ">
-              <p>icon</p>
+            <div className="flex flex-row items-center">
+              <Check className="bg-gold text-wine rounded-full p-1" />
               <div>
-                <p>bold text</p>
-                <p>small text</p>
+                <p className="font-bold text-navy">Room to be yourself</p>
+                <p>Clubs, arts, athletics, and endless ways to shine.</p>
               </div>
             </div>
           </div>
