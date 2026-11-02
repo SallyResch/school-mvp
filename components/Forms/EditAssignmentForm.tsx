@@ -54,7 +54,7 @@ const EditAssignmentForm = ({
                     ))}
                 </select>
                 {errors.course_id && <ErrorMessage error={errors.course_id!.message!} />}
-                <button className="bg-wine text-gold rounded py-2 font-semibold">Create assignment</button>
+                <button className="bg-wine text-gold rounded py-2 font-semibold">Edit assignment</button>
             </div>
         </form>
     )
