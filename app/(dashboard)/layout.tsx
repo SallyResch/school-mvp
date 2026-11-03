@@ -1,4 +1,5 @@
 
+import DashboardHeader from "@/components/Headers/DashboardHeader";
 import HomeHeader from "@/components/Headers/HomeHeader"
 import Sidebar from "@/components/Sidebar"
 import { Cinzel_Decorative, Playfair_Display_SC } from "next/font/google";
@@ -18,9 +19,11 @@ const geistMono = Cinzel_Decorative({
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="flex flex-col flex-1 min-h-full">
-            <HomeHeader />
+            <DashboardHeader />
             <div className="flex flex-row flex-1">
-                <Sidebar />
+                <div className="hidden md:block bg-navy">
+                    <Sidebar />
+                </div>
                 {children}
             </div>
         </div>
