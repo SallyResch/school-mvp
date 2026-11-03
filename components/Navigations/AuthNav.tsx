@@ -12,7 +12,7 @@ const GeneralNav = async () => {
     return (
         <div className="hidden md:block">
             {user ?
-                <div className="hidden md:flex md:flex-row md:items-center">
+                <div className="md:flex md:flex-row md:items-center">
                     <HomeNav />
                     <div className="flex flex-row items-center">
                         {
