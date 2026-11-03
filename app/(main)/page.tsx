@@ -125,22 +125,22 @@ export default async function Home() {
           <h3 className="text-5xl">Big ideas. Real <br /> friendships. <span className="text-orange">Every day.</span></h3>
           <p className="text-muted min-w-75 max-w-125">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
           <div>
-            <div className="flex flex-row items-center">
-              <Check className="bg-gold text-wine rounded-full p-1" />
+            <div className="flex flex-row items-center mb-4 mt-4">
+              <Check className="bg-gold text-wine rounded-full p-1 w-8 h-8 mr-4" />
               <div>
                 <p className="font-bold text-navy">Joyful, active learning</p>
                 <p>Classes built around curiosity and collaboration.</p>
               </div>
             </div>
-            <div className="flex flex-row items-center">
-              <Check className="bg-gold text-wine rounded-full p-1" />
+            <div className="flex flex-row items-center mb-4">
+              <Check className="bg-gold text-wine rounded-full p-1 w-8 h-8 mr-4" />
               <div>
                 <p className="font-bold text-navy">A community that feels close</p>
                 <p>Belonging isn't a program here. Its how we do school.</p>
               </div>
             </div>
             <div className="flex flex-row items-center">
-              <Check className="bg-gold text-wine rounded-full p-1" />
+              <Check className="bg-gold text-wine rounded-full p-1 w-8 h-8 mr-4" />
               <div>
                 <p className="font-bold text-navy">Room to be yourself</p>
                 <p>Clubs, arts, athletics, and endless ways to shine.</p>
