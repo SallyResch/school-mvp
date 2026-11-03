@@ -10,7 +10,7 @@ const GeneralNav = async () => {
     const userData = await getLoggedInUser(supabase)
 
     return (
-        <div>
+        <div className="hidden md:block">
             {user ?
                 <div className="hidden md:flex md:flex-row md:items-center">
                     <HomeNav />
