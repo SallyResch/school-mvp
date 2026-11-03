@@ -6,8 +6,8 @@ export default async function Home() {
   return (
     <main>
       <section id="home" className="max-w-full md:pt-30 pb-10 pt-10">
-        <div className="flex flex-col md:flex-row justify-center md:pb-20">
-          <div className="sm:max-w-90">
+        <div className="flex flex-col md:flex-row justify-center items-center md:pb-20">
+          <div className="max-w-100 mb-10">
             <div className="flex flex-row items-center">
               <div className="bg-gold rounded-full w-8 h-8 p-1">
                 <Sparkles className="text-wine" />
@@ -25,7 +25,7 @@ export default async function Home() {
             <p>98% of families</p>
             <p>would recommend Northstar</p>
           </div>
-          <div className="relative w-90 h-100">
+          <div className="relative w-90 h-100 mb-10">
             <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md w-50 text-sm ">
               <Sparkles className="text-gold bg-cream" />
               <div>
