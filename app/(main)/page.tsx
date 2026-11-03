@@ -61,12 +61,14 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="max-w-4xl m-auto md:pb-30 md:pt-15 pb-10 pt-10" id="our-school">
-        <p className="text-wine font-semibold tracking-widest uppercase text-sm ">Why northstar?</p>
-        <div className="flex flex-col md:flex-row md:justify-between mb-10">
-          <h2 className="text-ink text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
+      <section className="max-w-4xl m-auto md:pb-30 md:pt-15" id="our-school">
+
+        <p className="text-wine font-semibold tracking-widest uppercase text-sm text-center">Why northstar?</p>
+        <div className="flex flex-col justify-center items-center md:flex-row md:justify-between mb-10">
+          <h2 className="text-ink text-4xl md:text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
           <p className="text-muted w-75">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
         </div>
+
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="bg-navy text-paper flex flex-col p-4 w-75 rounded-2xl md:mr-5">
             <div className="flex flex-row justify-between mb-10">
@@ -98,7 +100,7 @@ export default async function Home() {
             </div>
             <Link href={"/teacher/courses"}>Meet our community</Link>
           </div>
-          <div className="bg-wine text-paper flex flex-col p-4 w-75 rounded-2xl md:ml-5">
+          <div className="bg-wine text-paper flex flex-col p-4 w-75 rounded-2xl md:ml-5 mb-10 md:mb-0">
             <div className="flex flex-row justify-between mb-10">
               <div>
                 <TrendingUp />
