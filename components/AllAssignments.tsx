@@ -10,7 +10,7 @@ type AllAssignmentProps = {
     assignments: AllAssignmentsType
     role: "Student" | "Teacher"
 }
-//export const revalidate = 600;
+
 const AllAssignments = ({ assignments, role }: AllAssignmentProps) => {
     const supabase = createClient()
     const basePath = role === "Student" ? "/student" : "/teacher"
@@ -26,9 +26,9 @@ const AllAssignments = ({ assignments, role }: AllAssignmentProps) => {
     })
 
     return (
-        <div className="grid grid-cols-2 m-auto">
+        <div className="flex flex-col md:grid md:grid-cols-2 m-auto">
             {data && data.map((assignment) => (
-                <Link href={`${basePath}/assignments/${assignment.slug}`} className="border" key={assignment.slug}>
+                <Link href={`${basePath}/assignments/${assignment.slug}`} className="border-l-4 border-l-navy shadow-2xs rounded-2xl p-2 bg-white m-2" key={assignment.slug}>
                     <h3 className='text-2xl'>{assignment.name}</h3>
                     <p>Description: {assignment.description}</p>
                     <p>Created: {formatDate(assignment.created_at)}</p>

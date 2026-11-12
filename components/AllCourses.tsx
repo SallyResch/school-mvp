@@ -26,10 +26,10 @@ const AllCourses = ({ courses, role }: AllCoursesProps) => {
     })
 
     return (
-        <div className="grid grid-cols-2 m-auto">
+        <div className="flex flex-col md:grid md:grid-cols-2 m-auto">
             {data && data.map((course) => (
-                <Link href={`${basePath}/courses/${course.slug}`} className="border" key={course.slug}>
-                    <p>{course.name}</p>
+                <Link href={`${basePath}/courses/${course.slug}`} className="border-l-4 border-l-wine shadow-2xs rounded-2xl p-2 bg-white m-2" key={course.slug}>
+                    <h2>{course.name}</h2>
                     <p>{course.description}</p>
                     <p>Created: {formatDate(course.created_at)}</p>
                 </Link>

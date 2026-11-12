@@ -28,7 +28,7 @@ const GeneralNav = async () => {
                 <div className="flex flex-row justify-evenly items-center">
                     <HomeNav />
                     <Link className="px-2 py-1 rounded bg-navy text-gold" href={"/login"}>Portal</Link>
-                    <Link className="px-2 py-1 rounded font-semibold text-navy bg-orange" href={"/signup"}>Sign up</Link>
+                    <Link className="px-2 py-1 ml-4 rounded font-semibold text-navy bg-orange" href={"/signup"}>Sign up</Link>
                 </div>}
         </div>
     )
