@@ -1,12 +1,12 @@
-import { Astroid, Check, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, Astroid, Check, ChevronRight, Sparkles, TrendingUp, Users, Zap } from "lucide-react";
 import Link from "next/link";
 
 
 export default async function Home() {
   return (
     <main>
-      <section id="home" className="max-w-full md:pt-30 pb-10 pt-10">
-        <div className="flex flex-col md:flex-row justify-center items-center md:pb-20">
+      <section id="home" className="max-w-full my-10">
+        <div className="flex flex-col md:flex-row justify-center items-center md:pb-20 px-4">
           <div className="max-w-100 mb-10">
             <div className="flex flex-row items-center">
               <div className="bg-gold rounded-full w-8 h-8 p-1">
@@ -15,15 +15,26 @@ export default async function Home() {
               <p className="text-wine font-semibold tracking-widest uppercase text-sm ml-2">Learn boldly. Grow together.</p>
             </div>
             <div className="my-6">
-              <h2 className="text-ink text-5xl mb-6">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
+              <h2 className="text-navy text-4xl mb-6">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
               <p className="text-muted text-lg">Northstar Academy is a vibrant learning community where curiosity is celebrated, confidence grows, and every student is known by name.</p>
             </div>
-            <div className="my-4">
-              <Link className="bg-navy text-paper font-semibold rounded-2xl p-3" href={"#our-school"}>Discover Northstar</Link>
-              <Link className="text-navy font-semibold bg-cream rounded-2xl p-3" href={"#student-life"}>Explore student life</Link>
+            <div className="my-4 flex flex-col md:flex-row text-center">
+              <Link className="bg-navy text-paper font-semibold rounded-xl p-3.5 flex flex-row justify-center items-center" href={"#our-school"}>
+                <p className="mr-2">Discover Northstar</p>
+                <ArrowRight size={20} />
+              </Link>
+              <Link className="text-navy font-semibold bg-cream rounded-2xl p-3 flex flex-row justify-center items-center" href={"#student-life"}>
+                <p>Explore student life</p>
+                <ChevronRight size={20} />
+              </Link>
             </div>
-            <p>98% of families</p>
-            <p>would recommend Northstar</p>
+            <div className="flex flex-row items-center">
+              <Users size={30} color="navy" />
+              <div className="ml-4 text-sm">
+                <p className="font-semibold text-navy">98% of families</p>
+                <p className="font-semibold text-muted">would recommend Northstar</p>
+              </div>
+            </div>
           </div>
           <div className="relative w-90 h-100 mb-10">
             <div className="absolute left-0 top-0 z-10 rounded-2xl bg-white px-6 py-3 shadow-md w-50 text-sm ">
@@ -42,33 +53,33 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:items-center px-20 bg-navy md:flex-row md:justify-evenly text-paper p-4">
-          <div className="flex flex-row items-center">
-            <p className="text-gold text-3xl">680</p>
-            <p className="ml-2">happy students</p>
+        <div className="grid grid-cols-2 auto-rows-auto md:flex md:items-center bg-navy md:flex-row md:justify-evenly text-paper">
+          <div className="flex flex-row items-center p-6">
+            <p className="text-gold text-2xl">680</p>
+            <p className="ml-2 text-xs">happy students</p>
           </div>
-          <div className="flex flex-row items-center">
-            <p className="text-gold text-3xl">14:1</p>
-            <p className="ml-2">Student-teacher Ratio</p>
+          <div className="flex flex-row items-center p-6">
+            <p className="text-gold text-2xl">14:1</p>
+            <p className="ml-2 text-xs">Student-teacher Ratio</p>
           </div>
-          <div className="flex flex-row items-center">
-            <p className="text-gold text-3xl">32</p>
-            <p className="ml-2">years of excellence</p>
+          <div className="flex flex-row items-center p-6">
+            <p className="text-gold text-2xl">32</p>
+            <p className="ml-2 text-xs">years of excellence</p>
           </div>
-          <div className="flex flex-row items-center">
-            <p className="text-gold text-3xl">96%</p>
-            <p className="ml-2">collage acceptance</p>
+          <div className="flex flex-row items-center p-6">
+            <p className="text-gold text-2xl">96%</p>
+            <p className="ml-2 text-xs">collage acceptance</p>
           </div>
         </div>
       </section>
       <section className="max-w-4xl m-auto md:pb-30 md:pt-15" id="our-school">
-
-        <p className="text-wine font-semibold tracking-widest uppercase text-sm text-center">Why northstar?</p>
-        <div className="flex flex-col justify-center items-center md:flex-row md:justify-between mb-10">
-          <h2 className="text-ink text-4xl md:text-5xl">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
-          <p className="text-muted w-75">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
+        <div className="px-6">
+          <p className="text-wine font-semibold tracking-widest uppercase text-sm">Why northstar?</p>
+          <div className="flex flex-col justify-center items-center md:flex-row md:justify-between py-4">
+            <h2 className="text-ink text-3xl md:text-5xl tracking-tight">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
+            <p className="text-muted min-w-[320] max-w-[360] py-6">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
+          </div>
         </div>
-
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="bg-navy text-paper flex flex-col p-4 w-75 rounded-2xl md:mr-5">
             <div className="flex flex-row justify-between mb-10">
@@ -118,11 +129,11 @@ export default async function Home() {
         </div>
       </section>
       <section className="h-vh bg-paper flex flex-col md:flex-row justify-evenly items-center md:pt-30 md:pb-30 pt-10" id="student-life">
-        <div className="flex flex-col justify-between md:w-1/2">
+        <div className="flex flex-col justify-between px-4 md:w-1/2">
           <img className="self-start rounded-tl-[80px] rounded-2xl mb-5" width={340} src="https://images.unsplash.com/photo-1758270704226-db897b180243?auto=format&fit=crop&w=900&q=85" alt="Students in classroom" />
           <img className="self-end rounded-br-[80px] rounded-2xl mt-5 mb-5" width={340} src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?auto=format&fit=crop&w=900&q=85" alt="Students laughing together" />
         </div>
-        <div>
+        <div className="px-4 mb-6">
           <p className="text-wine font-semibold tracking-widest uppercase text-sm ">The northstar experience</p>
           <h3 className="text-5xl">Big ideas. Real <br /> friendships. <span className="text-orange">Every day.</span></h3>
           <p className="text-muted min-w-75 max-w-125">From science labs to stage lights, Northstar students learn by doing and discover what makes them come alive.</p>
