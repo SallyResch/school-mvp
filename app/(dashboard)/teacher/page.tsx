@@ -25,7 +25,7 @@ const teacherPage = async () => {
                 </div>
                 <div className="flex flex-col">
                     <Link className="text-white bg-navy text-center rounded font-semibold m-6 p-4" href={"/teacher/courses/create"}>Create course</Link>
-                    <Link className="text-white bg-navy text-center rounded font-semibold m-6 p-4" href={"/teacher/assignments"}>Create assignments</Link>
+                    <Link className="text-white bg-navy text-center rounded font-semibold m-6 p-4" href={"/teacher/assignments/create"}>Create assignments</Link>
                 </div>
             </div>
         </div>)
