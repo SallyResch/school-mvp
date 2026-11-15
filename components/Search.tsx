@@ -2,6 +2,7 @@
 
 import { searchCourses } from "@/lib/supabase/queries"
 import { SearchResultType } from "@/lib/supabase/types"
+import { SearchIcon } from "lucide-react"
 import Link from "next/link"
 import { SetStateAction, useState } from "react"
 
@@ -20,8 +21,11 @@ const Search = () => {
 
     return (
         <div className="flex flex-col justify-center items-center mt-2">
-            <div className="flex flex-col items-center md:flex md:flex-row">
-                <input className="border py-1 px-2 bg-white border-lightGreen rounded" onChange={handleChange} type="text" placeholder="Search for course" value={input} />
+            <div className="flex flex-row border rounded border-muted p-2 bg-white items-center">
+                <SearchIcon className="text-muted" />
+                <div className="flex flex-col items-center md:flex md:flex-row">
+                    <input className="py-1 px-2 border-muted rounded" onChange={handleChange} type="text" placeholder="Search for course" value={input} />
+                </div>
                 <button className="border rounded m-2 px-2 bg-gold font-semibold w-fit hover:cursor-pointer" onClick={handleClick}>Search</button>
             </div>
             {searchResults &&

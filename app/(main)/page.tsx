@@ -15,7 +15,7 @@ export default async function Home() {
               <p className="text-wine font-semibold tracking-widest uppercase text-sm ml-2">Learn boldly. Grow together.</p>
             </div>
             <div className="my-6">
-              <h2 className="text-navy text-4xl mb-6">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
+              <h2 className="text-navy mb-6">A school where every <span className="text-orange underline">bright mind</span> belongs.</h2>
               <p className="text-muted text-lg">Northstar Academy is a vibrant learning community where curiosity is celebrated, confidence grows, and every student is known by name.</p>
             </div>
             <div className="my-4 flex flex-col md:flex-row text-center">
@@ -76,7 +76,7 @@ export default async function Home() {
         <div className="px-6">
           <p className="text-wine font-semibold tracking-widest uppercase text-sm">Why northstar?</p>
           <div className="flex flex-col justify-center items-center md:flex-row md:justify-between py-4">
-            <h2 className="text-ink text-3xl md:text-5xl tracking-tight">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
+            <h2 className="text-ink tracking-tight">School should feel like a <br /> place you <span className="text-orange">want</span> to be.</h2>
             <p className="text-muted min-w-[320] max-w-[360] py-6">We blend academic challenge with genuine care, giving students the courage to try, the support to grow, and the freedom to find their own path.</p>
           </div>
         </div>
