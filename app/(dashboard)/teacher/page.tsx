@@ -1,4 +1,5 @@
 import Search from "@/components/Search"
+import TodaysDate from "@/components/TodaysDate"
 import { getLoggedInUser } from "@/lib/supabase/queries"
 import { createClient } from "@/lib/supabase/server-client"
 import { ChevronRight } from "lucide-react"
@@ -10,9 +11,10 @@ const teacherPage = async () => {
 
     return (
         <div className="w-screen bg-cover bg-no-repeat bg-top h-screen">
+            <Search />
             <div className="flex flex-col justify-center items-center bg-blue/60">
+                <TodaysDate />
                 <h1 className="text-3xl mt-5 font-bold text-lightOrange">Welcome {userProfile!.name}</h1>
-                <Search />
                 <div className="flex flex-col font-semibold text-navy m-10">
                     <div className="flex flex-row items-center m-5">
                         <Link href={"/teacher/courses"}>All courses</Link>

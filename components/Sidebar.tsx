@@ -9,17 +9,17 @@ const Sidebar = async () => {
         <div className="hidden md:block bg-navy p-6">
             {userProfile?.roles.name === "Student" ?
                 <div className="flex flex-col">
-                    <Link className="text-gold text-xs font-bold uppercase hover:cursor-pointer text-center" href={"/student"}>{userProfile!.name} workspace</Link>
-                    <Link className="text-muted font-bold" href={"/student/#courses"}>Courses</Link>
-                    <Link className="text-muted font-bold" href={"/student/#assignments"}>Assignments</Link>
+                    <Link className="text-orange text-center text-xs font-bold bg-navy-light rounded-xl uppercase hover:cursor-pointer" href={"/student"}>Student workspace</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/student/#courses"}>Courses</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/student/#assignments"}>Assignments</Link>
                 </div>
                 :
                 <div className="flex flex-col">
-                    <Link className="text-gold text-xs font-bold uppercase hover:cursor-pointer text-center" href={"/teacher"}>{userProfile!.name} workspace</Link>
-                    <Link className="text-muted font-bold" href={"/teacher/courses"}>Courses</Link>
-                    <Link className="text-muted font-bold" href={"/teacher/courses/create"}>Create Course</Link>
-                    <Link className="text-muted font-bold" href={"/teacher/assignments"}>Assignments</Link>
-                    <Link className="text-muted font-bold" href={"/teacher/assignments/create"}>Create Assignment</Link>
+                    <Link className="text-orange text-center text-[10px] py-2 font-bold bg-navy-light rounded-xl uppercase hover:cursor-pointer" href={"/teacher"}>Teacher workspace</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/teacher/courses"}>Courses</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/teacher/courses/create"}>Create Course</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/teacher/assignments"}>Assignments</Link>
+                    <Link className="text-muted font-bold my-4 border-b-2 border-navy hover:border-b-2 hover:border-b-gold" href={"/teacher/assignments/create"}>Create Assignment</Link>
                 </div>}
         </div>
 

@@ -1,5 +1,6 @@
 import AllAssignments from "@/components/AllAssignments"
 import AllCourses from "@/components/AllCourses"
+import TodaysDate from "@/components/TodaysDate"
 import { getAllAssignments, getAllCourses, getLoggedInUser } from "@/lib/supabase/queries"
 import { createClient } from "@/lib/supabase/server-client"
 
@@ -25,6 +26,7 @@ const studentPage = async () => {
 
     return (
         <main className="flex flex-col m-auto p-2 bg-gold rounded">
+            <TodaysDate />
             <h1 className="text-3xl bg-navy text-gold text-center rounded">Student page</h1>
             <div className="md:max-w-lg mt-4" id="courses">
                 <h2 className="text-2xl text-center">Courses</h2>

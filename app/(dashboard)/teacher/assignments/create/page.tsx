@@ -8,10 +8,10 @@ const CreateAssignmentPage = async () => {
         throw new Error(error.message)
     }
     return (
-        <div className='flex flex-col mx-auto mt-'>
-            <h1 className='text-4xl mt-10'>Create an Assignment</h1>
+        <div className='flex flex-col mx-auto'>
+            <h1 className='mt-10'>Create an Assignment</h1>
             <div className='mt-5 mb-5'>
-                <h2 className='text-2xl'>How to do it:</h2>
+                <h2>How to do it:</h2>
                 <ol>
                     <li>Name the assignment</li>
                     <li>Add a description of atleast 15 characters</li>

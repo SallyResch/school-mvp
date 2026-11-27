@@ -6,6 +6,7 @@ body {
 
 :root {
   --navy: #02014d;
+  --navy-light: #242353;
   --orange: #ff9f1c;
   --gold: #ffbf69;
   --wine: #640d14;
@@ -19,6 +20,7 @@ body {
 
 @theme {
   --color-navy: #02014d;
+  --color-navy-light: #242353;
   --color-orange: #ff9f1c;
   --color-gold: #ffbf69;
   --color-wine: #640d14;
